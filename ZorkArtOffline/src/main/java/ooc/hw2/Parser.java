@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Parser {
     private CommandWords commands;
     private Scanner reader;
-
+//Get command into the game.
     public Parser(String[] args) {
         commands = new CommandWords();
         reader = new Scanner(System.in);
@@ -36,12 +36,6 @@ public class Parser {
             System.out.println("I don't understand what you want.....try again please.");
             return null;
         }
-    }
-
-    public static void main(String[] args) {
-        Parser parser=new Parser(args);
-        parser.getCommand();
-
     }
 }
 
