@@ -11,6 +11,7 @@ public class Hero {
     private Integer level;
     private Integer experiencePoint;
     private Integer statPoint;
+    private Sword sword;
 
     public Hero(){
         this.hp=100;
@@ -23,6 +24,7 @@ public class Hero {
         this.maxHp=100;
         this.maxMp=100;
         this.statPoint =10;
+        sword=new Sword();
     }
 
     public Integer getAttack() {
@@ -36,6 +38,8 @@ public class Hero {
     public Integer getDefence() {
         return defence;
     }
+
+    public Sword checkWeapons(){return this.sword;}
 //Update the change in hp/mp of hero.
     public void updateHpMp(Integer changeHp,Integer changeMp){
         this.hp=Math.min(this.hp+=changeHp,this.maxHp);
