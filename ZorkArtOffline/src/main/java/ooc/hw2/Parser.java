@@ -11,12 +11,10 @@ public class Parser {
         reader = new Scanner(System.in);
     }
 
-    public Command getCommand() {
+    public String getCommand() {
         String inputLine;   // will hold the full input line
         String word1 = null;
         String word2 = null;
-
-        System.out.print("> ");     // print prompt
 
         inputLine = reader.nextLine();
 
@@ -30,7 +28,7 @@ public class Parser {
             }
         }
         if(commands.isCommand(word1)){
-            return new Command(word1,word2);
+            return word1+word2;
         }
         else{
             System.out.println("I don't understand what you want.....try again please.");
