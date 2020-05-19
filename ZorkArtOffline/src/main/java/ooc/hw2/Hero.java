@@ -10,7 +10,7 @@ public class Hero {
     private Integer evasion;
     private Integer level;
     private Integer experiencePoint;
-    private Integer StatPoint;
+    private Integer statPoint;
 
     public Hero(){
         this.hp=100;
@@ -22,49 +22,59 @@ public class Hero {
         this.experiencePoint=0;
         this.maxHp=100;
         this.maxMp=100;
-        this.StatPoint=10;
+        this.statPoint =10;
     }
 
-    public void turnRegeneration(){
-        if(this.hp<this.maxHp){
-            this.hp++;
-        }
-        if(this.mp<this.maxMp){
-            this.mp++;
-        }
+    public Integer getAttack() {
+        return attack;
+    }
+
+    public Integer getEvasion() {
+        return evasion;
+    }
+
+    public Integer getDefence() {
+        return defence;
+    }
+//Update the change in hp/mp of hero.
+    public void updateHpMp(Integer changeHp,Integer changeMp){
+        this.hp=Math.min(this.hp+=changeHp,this.maxHp);
+        this.mp=Math.min(this.mp+=changeMp,this.maxMp);
     }
 
     public void levelUp(){
+        System.out.println("Congratulation your hero level up by 1");
         this.maxHp+=5;
         this.maxMp+=5;
         this.attack+=2;
         this.defence+=2;
-        this.StatPoint+=2;
+        this.statPoint +=2;
+        this.level+=1;
     }
-
+//apply the exp to hero+check leveling up.
     public void updateExperience(Integer exp){
         this.experiencePoint+=exp;
-        if(this.experiencePoint<=Math.pow(this.level,2)){
+        if(this.experiencePoint>=Math.pow(this.level,2)){
             levelUp();
             this.experiencePoint=0;
         }
     }
-
+//Spend stat point on to hero(Just for variation of the gameplay experience).
     public void updateStatPoint(String arg){
-        if(this.StatPoint!=0){
+        if(this.statPoint !=0){
             switch (arg) {
                 case "atk":
                     this.attack += 1;
-                    this.StatPoint -= 1;
+                    this.statPoint -= 1;
                     break;
                 case "def":
                     this.defence += 1;
-                    this.StatPoint -= 1;
+                    this.statPoint -= 1;
                     break;
                 case "eva":
                     if (this.evasion < 50) {
                         this.evasion += 1;
-                        this.StatPoint -= 1;
+                        this.statPoint -= 1;
                     } else {
                         System.out.println("Evasion maxed out already");
                     }
