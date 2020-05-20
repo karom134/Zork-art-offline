@@ -56,21 +56,14 @@ public class BattleMechanic {
         }
         commandWords.resetAvailableCommand();
         if(hero.getHp()<=0){
-            System.out.println("you dead");
+            System.out.println("You dead");
             return true;
         }
         else{
-            System.out.println("you defeated a monster");
+            System.out.println("You defeat a monster");
             hero.updateExperience(20+monster.getLifeCycle()*2);
+            hero.checkWeapons().upgrade();
             return false;
         }
-    }
-
-    public static void main(String[] args) {
-        Hero hero=new Hero();
-
-        Enemy monster=new Monster(15);
-        BattleMechanic battleMechanic=new BattleMechanic(hero,monster,new CommandWords());
-        battleMechanic.battle();
     }
 }

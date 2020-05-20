@@ -110,6 +110,7 @@ public class Hero {
             this.experiencePoint=0;
         }
     }
+
 //Spend stat point on to hero(Just for variation of the gameplay experience).
     public void updateStatPoint(String arg){
         if(this.statPoint !=0){

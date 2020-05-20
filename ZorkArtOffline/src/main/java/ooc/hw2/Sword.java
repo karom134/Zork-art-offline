@@ -13,6 +13,7 @@ public class Sword {
         return attackDamage;
     }
     public void upgrade(){
+        System.out.println("Your sword is upgraded.");
         attackDamage+=2;
     }
 }
