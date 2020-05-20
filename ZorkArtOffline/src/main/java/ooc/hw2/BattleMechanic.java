@@ -33,41 +33,30 @@ public class BattleMechanic {
             hero.updateHpMp(-netDamage,0);
         }
     }
-    public Boolean battle(){
-        Boolean end=false;
-        commandWords.addCommand("attack", new AttackCommand(hero,monster,"Use this command to attack your enemy"));
-        Set<String> set=new HashSet<>();
+    public void battle() {
+        Boolean end = false;
+        commandWords.addCommand("attack", new AttackCommand(hero, monster, "Use this command to attack your enemy"));
+        Set<String> set = new HashSet<>();
         set.add("attack");
         set.add("info");
         set.add("drink");
         set.add("help");
         commandWords.setAvailableCommands(set);
-        while(!end){
-            String input=parser.getCommand();
-            String word1=input.split("/")[0];
-            String word2=input.split("/")[1];
-            if(commandWords.checkAvailability(word1)){
+        while (!end) {
+            String input = parser.getCommand();
+            String word1 = input.split("/")[0];
+            String word2 = input.split("/")[1];
+            if (commandWords.checkAvailability(word1)) {
                 commandWords.accessCommand(word1).execute(word2);
-            }
-            else{
+            } else {
                 System.out.println("We don't know that command or that command can't be used right now.");
             }
             retaliate();
-            hero.updateHpMp(1,1);
-            System.out.println("Monster:"+monster.getHp()+" Hero:"
-                    +hero.getHp().toString()+"/"+hero.getMaxHp());
-            end=isEnd();
+            hero.updateHpMp(1, 1);
+            System.out.println("Monster:" + monster.getHp() + " Hero:"
+                    + hero.getHp().toString() + "/" + hero.getMaxHp());
+            end = isEnd();
         }
         commandWords.resetAvailableCommand();
-        if(hero.getHp()<=0){
-            System.out.println("You dead");
-            return true;
-        }
-        else{
-            System.out.println("You defeat a monster");
-            hero.updateExperience(20+monster.getLifeCycle()*2);
-            hero.checkWeapons().upgrade();
-            return false;
-        }
     }
 }
