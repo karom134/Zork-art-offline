@@ -13,10 +13,10 @@ public class MovementControl {
     }
 
     public Boolean validateMove(Integer finalLocation, Integer location){
-        Integer horizontalBound=location%this.size;
-        Integer verticalBound=location/this.size;
-        Boolean horizontalBool=true;
-        Boolean verticalBool=true;
+        int horizontalBound=location%this.size;
+        int verticalBound=location/this.size;
+        boolean horizontalBool=true;
+        boolean verticalBool=true;
         if(horizontalBound==this.size-1){
             horizontalBool=finalLocation!=location+1
                     && finalLocation!=location-(this.size-1)
@@ -43,7 +43,7 @@ public class MovementControl {
         Boolean checker=false;
         Integer finalLocation=location;
         while(!checker){
-            Double randomDirection= Math.random();
+            double randomDirection= Math.random();
             if(randomDirection<=0.125){
                 finalLocation=location-(this.size+1);
             }

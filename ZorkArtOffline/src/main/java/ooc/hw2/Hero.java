@@ -29,6 +29,10 @@ public class Hero {
         this.maxMp=100;
         this.statPoint =10;
         sword=new Sword();
+        this.skill1=false;
+        this.skill2=false;
+        this.skill3=false;
+        this.skill4=false;
     }
 
     public Integer getAttack() {
@@ -65,6 +69,22 @@ public class Hero {
         return level;
     }
 
+    public Boolean getSkill1() {
+        return skill1;
+    }
+
+    public Boolean getSkill2() {
+        return skill2;
+    }
+
+    public Boolean getSkill3() {
+        return skill3;
+    }
+
+    public Boolean getSkill4() {
+        return skill4;
+    }
+
     //Update the change in hp/mp of hero.
     public void updateHpMp(Integer changeHp,Integer changeMp){
         this.hp=Math.min(this.hp+=changeHp,this.maxHp);
@@ -80,6 +100,7 @@ public class Hero {
         this.statPoint +=2;
         this.level+=1;
     }
+
 //apply the exp to hero+check leveling up.
     public void updateExperience(Integer exp){
         this.experiencePoint+=exp;
