@@ -3,13 +3,16 @@ package ooc.hw2;
 import java.util.*;
 
 public class MovementControl {
-    private List<Integer> terrain;
     private Integer size;
-    public MovementControl(List<Integer> terrain, Integer boardSize) {
-        this.terrain=terrain;
+    public MovementControl( Integer boardSize) {
         this.size=boardSize;
     }
-    public Boolean validateMove(Integer finalLocation,Integer location){
+
+    public Integer getSize() {
+        return size;
+    }
+
+    public Boolean validateMove(Integer finalLocation, Integer location){
         Integer horizontalBound=location%this.size;
         Integer verticalBound=location/this.size;
         Boolean horizontalBool=true;
@@ -68,10 +71,5 @@ public class MovementControl {
             checker=validateMove(finalLocation,location);
         }
         return finalLocation;
-    }
-
-    public static void main(String[] args) {
-        MovementControl movementControl=new MovementControl(new ArrayList<>(),15);
-        System.out.println(movementControl.randomMove(14));
     }
 }

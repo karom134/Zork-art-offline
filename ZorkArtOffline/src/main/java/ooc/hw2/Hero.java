@@ -12,6 +12,10 @@ public class Hero {
     private Integer experiencePoint;
     private Integer statPoint;
     private Sword sword;
+    private Boolean skill1;
+    private Boolean skill2;
+    private Boolean skill3;
+    private Boolean skill4;
 
     public Hero(){
         this.hp=100;
@@ -40,7 +44,28 @@ public class Hero {
     }
 
     public Sword checkWeapons(){return this.sword;}
-//Update the change in hp/mp of hero.
+
+    public Integer getHp() {
+        return hp;
+    }
+
+    public Integer getMaxHp() {
+        return maxHp;
+    }
+
+    public Integer getMaxMp() {
+        return maxMp;
+    }
+
+    public Integer getMp() {
+        return mp;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    //Update the change in hp/mp of hero.
     public void updateHpMp(Integer changeHp,Integer changeMp){
         this.hp=Math.min(this.hp+=changeHp,this.maxHp);
         this.mp=Math.min(this.mp+=changeMp,this.maxMp);
@@ -88,5 +113,21 @@ public class Hero {
         else{
             System.out.println("Not enough stat point");
         }
+    }
+
+    public void setSkill1(){
+        this.skill1=true;
+    }
+
+    public void setSkill2(){
+        this.skill2=true;
+    }
+
+    public void setSkill3(){
+        this.skill3=true;
+    }
+
+    public void setSkill4(){
+        this.skill4=true;
     }
 }

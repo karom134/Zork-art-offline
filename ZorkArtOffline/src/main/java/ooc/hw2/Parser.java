@@ -6,7 +6,7 @@ public class Parser {
     private CommandWords commands;
     private Scanner reader;
 //Get command into the game.
-    public Parser(String[] args) {
+    public Parser() {
         commands = new CommandWords();
         reader = new Scanner(System.in);
     }
