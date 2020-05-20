@@ -11,6 +11,9 @@ public class Inventory {
     public Inventory(){
         bagPack=new HashMap<>();
         bagPack.put("potion", new Pair(new Potion(),0));
+        bagPack.put("Spotion", new Pair(new Potion(),0));
+        bagPack.put("Hpotion", new Pair(new Potion(),0));
+        bagPack.put("Mpotion", new Pair(new Potion(),0));
     }
 
     public Inventory(Map<String,Pair> map){
