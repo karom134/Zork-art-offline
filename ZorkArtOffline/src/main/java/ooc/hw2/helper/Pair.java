@@ -1,6 +1,6 @@
 package ooc.hw2.helper;
 
-import ooc.hw2.Item;
+import ooc.hw2.item.Item;
 
 public class Pair{
     private Item first;

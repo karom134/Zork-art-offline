@@ -1,4 +1,4 @@
-package ooc.hw2;
+package ooc.hw2.item;
 
 public class Sword {
     private Integer attackDamage;

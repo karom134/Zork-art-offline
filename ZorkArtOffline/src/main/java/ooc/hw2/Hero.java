@@ -1,5 +1,8 @@
 package ooc.hw2;
 
+import ooc.hw2.item.Inventory;
+import ooc.hw2.item.Sword;
+
 public class Hero {
     private Integer hp;
     private Integer maxHp;

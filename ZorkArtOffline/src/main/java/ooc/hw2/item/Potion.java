@@ -1,6 +1,8 @@
-package ooc.hw2;
+package ooc.hw2.item;
 
-public class Potion implements Item{
+
+
+public class Potion implements Item {
     private String name="potion";
 
     @Override
