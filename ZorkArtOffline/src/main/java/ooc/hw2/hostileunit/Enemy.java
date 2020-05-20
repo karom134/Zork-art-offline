@@ -29,4 +29,10 @@ public abstract class Enemy {
         Random random=new Random();
         location=random.nextInt((int) Math.pow(size,2));
     }
+    public void piercing(Integer value){
+       this.defence=Math.max(this.defence-value,0);
+    }
+    public void armBreak(Integer value){
+        this.attack=Math.max(this.attack-value,0);
+    }
 }

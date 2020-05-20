@@ -42,25 +42,33 @@ public class AttackCommand implements Command {
             double skillDamage=netAttack*1.3;
             Integer netDamage=Math.toIntExact(Math.round(skillDamage*(1-((double) damageReduction)/100)));
             skillValidation(netDamage,0.9,15);
+            System.out.println("This skill has weapon break effect, enemy's attack decrease by 10");
         }
         else if(word2.equals("skill2")&& hero.getSkill2()){
             double skillDamage=netAttack*1.5;
             Integer netDamage=Math.toIntExact(Math.round(skillDamage*(1-((double) damageReduction)/100)));
             skillValidation(netDamage,0.8,25);
+            hero.checkWeapons().upgrade();
+            System.out.println("This attack has special property, if you kill enemy with this attack,your sword will " +
+                    "grow more than normal.");
         }
         else if(word2.equals("skill3")&& hero.getSkill3()){
             double skillDamage=netAttack*2;
             Integer netDamage=Math.toIntExact(Math.round(skillDamage*(1-((double) damageReduction)/100)));
             skillValidation(netDamage,0.7,40);
+            monster.piercing(40);
+            System.out.println("This skill has piercing effect, defence of the enemy decrease by 40.");
         }
         else if(word2.equals("skill4")&& hero.getSkill4()){
-            double skillDamage=netAttack*10;
+            double skillDamage=netAttack*5;
             Integer netDamage=Math.toIntExact(Math.round(skillDamage*(1-((double) damageReduction)/100)));
-            skillValidation(netDamage,0.9,150);
+            skillValidation(netDamage,0.9,175);
+            System.out.println("This is your ultimate attack, it will deal a lot of damage.");
         }
         else{
             Integer netDamage=Math.toIntExact(Math.round(netAttack*(1-((double) damageReduction)/100)));
             skillValidation(netDamage,1.0,0);
+            System.out.println("You use standard attack. This attack guarantee to connect.");
         }
 
     }
