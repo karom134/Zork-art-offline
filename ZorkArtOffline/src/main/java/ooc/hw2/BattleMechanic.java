@@ -1,6 +1,7 @@
 package ooc.hw2;
 
 import ooc.hw2.hostileunit.Enemy;
+import ooc.hw2.hostileunit.Monster;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,6 +23,14 @@ public class BattleMechanic {
     }
     public void retaliate(){
         Integer rawDamage=monster.attack();
+        int damageReduction= Math.toIntExact(Math.round(Math.pow(monster.getDefence(), ((double) 1) / 2) * 2));
+        int netDamage=Math.toIntExact(Math.round(rawDamage*(1-((double) damageReduction)/100)));
+        if(Math.random()<((double)hero.getEvasion())/100){
+            System.out.println("You evade the attack");
+        }
+        else{
+            hero.updateHpMp(-netDamage,0);
+        }
     }
     public Boolean battle(){
         Boolean end=false;
