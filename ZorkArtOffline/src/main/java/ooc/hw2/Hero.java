@@ -146,20 +146,19 @@ public class Hero {
             System.out.println("Not enough stat point");
         }
     }
-
-    public void setSkill1(){
-        this.skill1=true;
-    }
-
-    public void setSkill2(){
-        this.skill2=true;
-    }
-
-    public void setSkill3(){
-        this.skill3=true;
-    }
-
-    public void setSkill4(){
-        this.skill4=true;
+    public void unlockSkill(){
+        if(skill1){
+            if(skill2){
+                if(skill3){
+                    if(skill4){
+                        System.out.println("You unlock all skill");
+                    }
+                    skill4=true;
+                }
+                skill3=true;
+            }
+            skill2=true;
+        }
+        skill1=true;
     }
 }
