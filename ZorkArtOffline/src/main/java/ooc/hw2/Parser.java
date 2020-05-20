@@ -3,11 +3,9 @@ package ooc.hw2;
 import java.util.Scanner;
 
 public class Parser {
-    private CommandWords commands;
     private Scanner reader;
 //Get command into the game.
     public Parser() {
-        commands = new CommandWords();
         reader = new Scanner(System.in);
     }
 
@@ -27,13 +25,9 @@ public class Parser {
                 // note: we just ignore the rest of the input line.
             }
         }
-        if(commands.isCommand(word1)){
-            return word1+word2;
-        }
-        else{
-            System.out.println("I don't understand what you want.....try again please.");
-            return null;
-        }
+
+        return word1+"/"+word2;
+
     }
 }
 

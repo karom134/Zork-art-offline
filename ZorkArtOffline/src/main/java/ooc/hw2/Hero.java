@@ -104,6 +104,7 @@ public class Hero {
 //apply the exp to hero+check leveling up.
     public void updateExperience(Integer exp){
         this.experiencePoint+=exp;
+        System.out.println("You gain "+exp.toString()+" experience point");
         if(this.experiencePoint>=Math.pow(this.level,2)){
             levelUp();
             this.experiencePoint=0;

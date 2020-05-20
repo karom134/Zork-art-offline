@@ -4,19 +4,29 @@ import java.lang.reflect.Array;
 import java.util.*;
 
 public class CommandWords {
-    private List<String> commandLists;
+    private Map<String,Command> commands;
+    private Set<String> availableCommands;
 //Check all possible command also work with adding or removing extra command.
     public CommandWords() {
-        String[] strArr={"info","take","drop","attack", "go", "map","autopilot", "help", "quit", "play"
-        ,"load", "save", "exit"};
-        commandLists = new ArrayList<String>(Arrays.asList(strArr));
+        commands= new HashMap<>();
+        availableCommands=new HashSet<>();
     }
-    public void addCommand(String command) {
-        commandLists.add(command);
+    public void setAvailableCommands(Set<String> set){
+        availableCommands=set;
     }
 
-    public boolean isCommand(String command){
-        return commandLists.contains(command);
+    public void resetAvailableCommand(){
+        availableCommands.clear();
+    }
+    //If availableCommands empty==no limitation on using command.
+    public Boolean checkAvailability(String key){
+        return availableCommands.isEmpty()||availableCommands.contains(key);
+    }
+    public Command accessCommand(String key){
+        return commands.get(key);
+    }
+    public void addCommand(String key,Command command){
+        commands.put(key,command);
     }
 }
 

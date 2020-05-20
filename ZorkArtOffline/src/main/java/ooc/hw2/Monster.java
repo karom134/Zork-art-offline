@@ -9,15 +9,24 @@ public class Monster implements Enemy {
     private Integer defence;
     private Integer location;
     private Integer lifeCycle;
-    private MovementControl movementControl;
-    public Monster(MovementControl movementControl){
+
+    private Boolean boss;
+    public Monster(Integer size){
         hp=100;
         attack=10;
         defence=5;
-        this.movementControl=movementControl;
         Random random=new Random();
-        location=random.nextInt((int) Math.pow(this.movementControl.getSize(),2));
+        setLocation(size);
         lifeCycle=0;
+    }
+
+    public Monster(Integer health,Integer attack,Integer defence,
+                   Integer location,Boolean status){
+        hp=health;
+        this.attack=attack;
+        this.defence=defence;
+        this.location=location;
+        this.boss=status;
     }
     @Override
     public Integer getHp() {
@@ -39,18 +48,35 @@ public class Monster implements Enemy {
         return this.location;
     }
 
+    @Override
+    public Boolean getBoss() {
+        return this.boss;
+    }
+    @Override
     public Integer getLifeCycle(){
         return this.lifeCycle;
     }
-    public void moveMonster(){
-        this.location=movementControl.randomMove(this.location);
-    }
+    @Override
     public void updateMonster(){
-        lifeCycle+=1;
-        hp+=5;
-        attack+=5;
-        defence+=5;
+        if(!getBoss()) {
+            lifeCycle += 1;
+            hp += 5;
+            attack += 5;
+            defence += 5;
+        }else{
+            hp+=1000;
+            attack+=100;
+            defence+=50;
+        }
     }
+
+    @Override
+    public void setLocation(Integer size) {
+        Random random=new Random();
+        location=random.nextInt((int) Math.pow(size,2));
+    }
+
+    @Override
     public void updateHp(Integer damage){
         this.hp-=damage;
     }

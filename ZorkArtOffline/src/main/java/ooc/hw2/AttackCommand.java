@@ -2,9 +2,9 @@ package ooc.hw2;
 
 public class AttackCommand implements Command {
     private Hero hero;
-    private Monster monster;
+    private Enemy monster;
     private String description;
-    public AttackCommand(Hero hero, Monster monster, String desc){
+    public AttackCommand(Hero hero, Enemy monster, String desc){
         this.hero=hero;
         this.monster=monster;
         this.description=desc;
@@ -24,11 +24,10 @@ public class AttackCommand implements Command {
         else {
             if (checker <= accuracy) {
                 monster.updateHp(netDamage);
-                hero.updateHpMp(0,-mpUsage);
             } else {
                 System.out.println("Sorry,you missed the attack");
-                hero.updateHpMp(0,-mpUsage);
             }
+            hero.updateHpMp(0,-mpUsage);
         }
     }
 
