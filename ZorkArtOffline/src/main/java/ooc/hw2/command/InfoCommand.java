@@ -1,6 +1,8 @@
-package ooc.hw2;
+package ooc.hw2.command;
 
-public class InfoCommand implements Command{
+import ooc.hw2.Hero;
+
+public class InfoCommand implements Command {
     private Hero hero;
     private String description;
     public InfoCommand(Hero hero,String desc){

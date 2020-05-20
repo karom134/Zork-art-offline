@@ -1,5 +1,6 @@
-package ooc.hw2;
+package ooc.hw2.command;
 
+import ooc.hw2.Hero;
 import ooc.hw2.hostileunit.Enemy;
 
 public class AttackCommand implements Command {

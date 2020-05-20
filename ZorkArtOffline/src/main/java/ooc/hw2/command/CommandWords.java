@@ -1,10 +1,9 @@
-package ooc.hw2;
+package ooc.hw2.command;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class CommandWords {
-    private Map<String,Command> commands;
+    private Map<String, Command> commands;
     private Set<String> availableCommands;
 //Check all possible command also work with adding or removing extra command.
     public CommandWords() {

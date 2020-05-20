@@ -1,7 +1,8 @@
 package ooc.hw2;
 
+import ooc.hw2.command.AttackCommand;
+import ooc.hw2.command.CommandWords;
 import ooc.hw2.hostileunit.Enemy;
-import ooc.hw2.hostileunit.Monster;
 
 import java.util.HashSet;
 import java.util.Set;

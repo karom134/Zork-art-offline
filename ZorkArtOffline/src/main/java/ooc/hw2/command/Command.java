@@ -1,4 +1,4 @@
-package ooc.hw2;
+package ooc.hw2.command;
 
 public interface Command {
     String getDescription();
