@@ -16,6 +16,7 @@ public class Hero {
     private Boolean skill2;
     private Boolean skill3;
     private Boolean skill4;
+    private Inventory inventory;
 
     public Hero(){
         this.hp=100;
@@ -33,6 +34,11 @@ public class Hero {
         this.skill2=false;
         this.skill3=false;
         this.skill4=false;
+        this.inventory=new Inventory();
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 
     public Integer getAttack() {
