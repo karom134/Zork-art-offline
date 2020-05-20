@@ -1,5 +1,7 @@
 package ooc.hw2;
 
+import ooc.hw2.hostileunit.Enemy;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,16 +20,8 @@ public class BattleMechanic {
     public Boolean isEnd(){
         return hero.getHp()<=0 || monster.getHp()<=0;
     }
-    public void monsterAttack(){
-        Integer atk=monster.getAttack();
-        Integer damageBlock=Math.toIntExact(Math.round(Math.pow(hero.getDefence(), ((double) 1) / 2) * 2));
-        Integer netDamage=Math.toIntExact(Math.round(atk*(1-((double) damageBlock)/100)));
-        if(((double) hero.getEvasion())/100<=Math.random()){
-            hero.updateHpMp(-netDamage,0);
-        }
-        else{
-            System.out.println("You evade the attack");
-        }
+    public void retaliate(){
+        Integer rawDamage=monster.attack();
     }
     public Boolean battle(){
         Boolean end=false;
@@ -48,7 +42,7 @@ public class BattleMechanic {
             else{
                 System.out.println("We don't know that command or that command can't be used right now.");
             }
-            monsterAttack();
+            retaliate();
             hero.updateHpMp(1,1);
             System.out.println("Monster:"+monster.getHp()+" Hero:"
                     +hero.getHp().toString()+"/"+hero.getMaxHp());

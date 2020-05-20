@@ -1,5 +1,7 @@
 package ooc.hw2;
 
+import ooc.hw2.hostileunit.Enemy;
+
 public class AttackCommand implements Command {
     private Hero hero;
     private Enemy monster;
@@ -51,7 +53,7 @@ public class AttackCommand implements Command {
             skillValidation(netDamage,0.7,40);
         }
         else if(word2.equals("skill4")&& hero.getSkill4()){
-            double skillDamage=netAttack*4;
+            double skillDamage=netAttack*10;
             Integer netDamage=Math.toIntExact(Math.round(skillDamage*(1-((double) damageReduction)/100)));
             skillValidation(netDamage,0.9,150);
         }
