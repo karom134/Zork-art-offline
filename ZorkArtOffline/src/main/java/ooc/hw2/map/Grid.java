@@ -1,16 +1,19 @@
 package ooc.hw2.map;
 
 import ooc.hw2.hostileunit.Enemy;
+import ooc.hw2.item.Item;
 
 public class Grid {
     private Integer id;
     private Enemy enemy;
     private Boolean hostility;
     private String terrain;
-
+    private Boolean itemExist;
+    private String item;
     public Grid(Integer num){
         id=num;
         hostility=false;
+        itemExist=false;
     }
 
     public void addMonster(Enemy enemy) {
@@ -43,4 +46,21 @@ public class Grid {
         this.terrain=type;
     }
 
+    public void addItem(String item){
+        this.itemExist=true;
+        this.item=item;
+    }
+
+    public void removeItem(Item item){
+        this.item=null;
+        this.itemExist=false;
+    }
+
+    public Boolean getItemExist(){
+        return itemExist;
+    }
+
+    public String getItem(){
+        return item;
+    }
 }

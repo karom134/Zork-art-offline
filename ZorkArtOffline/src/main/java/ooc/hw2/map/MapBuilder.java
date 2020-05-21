@@ -92,6 +92,7 @@ public class MapBuilder extends MapAction {
                 map[i/size][i%size].addMonster(new BossMonster());
             }
         }
+        spawnMonster(20);
     }
 
     public Grid[][] getMap() {
@@ -111,7 +112,6 @@ public class MapBuilder extends MapAction {
     public static void main(String[] args) {
         MapBuilder map=new MapBuilder("../ZorkArtOffline/src/main/resources/SampleMap");
         map.constructFinalMap();
-        map.spawnMonster(20);
         System.out.println(map.getMonsterLocation().toString());
         Integer test=map.getMonsterLocation().get(0);
         System.out.println(map.getMap()[test/map.getSize()][test%map.getSize()].getHostility());
