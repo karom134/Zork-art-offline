@@ -1,12 +1,13 @@
 package ooc.hw2.hostileunit;
 
-import java.util.Random;
+import ooc.hw2.Grid;
+import ooc.hw2.helper.Pair;
 
 public abstract class Enemy {
     public Integer hp;
     public Integer attack;
     public Integer defence;
-    public Integer location;
+    public Pair location;
     public Integer lifeCycle;
     public Integer getHp(){
         return this.hp;
@@ -15,7 +16,7 @@ public abstract class Enemy {
     public Integer getDefence(){
         return this.defence;
     }
-    public Integer getLocation(){
+    public Pair getLocation(){
         return this.location;
     }
     public void updateHp(Integer netDamage){
@@ -25,10 +26,6 @@ public abstract class Enemy {
         return this.lifeCycle;
     }
     abstract public void updateMonster();
-    public void setLocation(Integer size){
-        Random random=new Random();
-        location=random.nextInt((int) Math.pow(size,2));
-    }
     public void piercing(Integer value){
        this.defence=Math.max(this.defence-value,0);
     }

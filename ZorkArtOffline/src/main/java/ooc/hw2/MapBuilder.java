@@ -9,27 +9,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MapBuilder {
-    private File path;
-    private Grid[][] map;
-    private List<Integer> tiles;
-    private List<Integer> forestTile=new ArrayList<>();
-    private List<Integer> tundraTile=new ArrayList<>();
-    private List<Integer> dessertTile=new ArrayList<>();
-    private List<Integer> mountainTile=new ArrayList<>();
-    private Integer size;
-    private List<Integer> bossLocation=new ArrayList<>();
-    private Integer finalBoss;
-    private Integer spawn;
-    private Map<String,String> asciimap=new HashMap<>();
+public class MapBuilder extends MapAction{
 
     public MapBuilder(String path){
         this.path=new File(path);
-        asciimap.put("Plain","@");
-        asciimap.put("Forest","#");
-        asciimap.put("Mountain","*");
-        asciimap.put("Tundra","+");
-        asciimap.put("Dessert","%");
+        constructAsciiMap();
     }
 
     public void constructEmptyMap(){
@@ -127,4 +111,5 @@ public class MapBuilder {
         }
         System.out.println("@-Plain +-Tundra #-Forest %-Dessert *-Mountain");
     }
+
 }

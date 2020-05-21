@@ -1,9 +1,8 @@
 package ooc.hw2.hostileunit;
 
 
-import ooc.hw2.hostileunit.Enemy;
-
-import java.util.Random;
+import ooc.hw2.Grid;
+import ooc.hw2.helper.Pair;
 
 public class Monster extends Enemy {
 
@@ -11,12 +10,10 @@ public class Monster extends Enemy {
         hp=100;
         attack=10;
         defence=5;
-        Random random=new Random();
-        setLocation(size);
         this.lifeCycle=0;
     }
-    public Monster(Integer health,Integer attack,Integer defence,
-                   Integer location){
+    public Monster(Integer health, Integer attack, Integer defence,
+                   Pair location){
         hp=health;
         this.attack=attack;
         this.defence=defence;

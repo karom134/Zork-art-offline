@@ -7,7 +7,6 @@ public class BossMonster extends Enemy{
         this.attack=50;
         this.defence=100;
         this.lifeCycle=0;
-
     }
 
     @Override

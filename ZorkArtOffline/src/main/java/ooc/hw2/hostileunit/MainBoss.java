@@ -6,7 +6,6 @@ public class MainBoss extends Enemy {
         hp=8000;
         attack=350;
         defence=625;
-        location=111;
         lifeCycle=0;
     }
     @Override
