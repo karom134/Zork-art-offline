@@ -22,8 +22,8 @@ public class Inventory {
 
     public void dropItem(String itemName) {
         Pair pair=bagPack.get(itemName);
-        if (pair.getSecond() != 0) {
-            pair.setSecond(pair.getSecond()-1);
+        if (((Integer)pair.getSecond()) != 0) {
+            pair.setSecond(((Integer)pair.getSecond())-1);
             bagPack.put(itemName, pair);
         }
         else{
@@ -33,7 +33,7 @@ public class Inventory {
 
     public void addItem(String itemName) {
         Pair pair=bagPack.get(itemName);
-        pair.setSecond(pair.getSecond()+1);
+        pair.setSecond(((Integer)pair.getSecond())+1);
         bagPack.put(itemName, pair);
     }
 

@@ -2,11 +2,11 @@ package ooc.hw2.command;
 
 import java.util.*;
 
-public class CommandWords {
+public class CommandFactory {
     private Map<String, Command> commands;
     private Set<String> availableCommands;
 //Check all possible command also work with adding or removing extra command.
-    public CommandWords() {
+    public CommandFactory() {
         commands= new HashMap<>();
         availableCommands=new HashSet<>();
     }
