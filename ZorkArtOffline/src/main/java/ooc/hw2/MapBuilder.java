@@ -4,10 +4,7 @@ import ooc.hw2.hostileunit.BossMonster;
 import ooc.hw2.hostileunit.MainBoss;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MapBuilder extends MapAction{
 
@@ -100,16 +97,31 @@ public class MapBuilder extends MapAction{
     public Grid[][] getMap() {
         return map;
     }
-
     public void toAsciiArt(){
         for(int i=0;i<size;i++){
             String line="";
             for(int j=0;j<size;j++){
-                line=line+asciimap.get(map[i][j].getTerrain())+" ";
+                line=line+ asciiMap.get(map[i][j].getTerrain())+" ";
             }
             System.out.println(line);
         }
         System.out.println("@-Plain +-Tundra #-Forest %-Dessert *-Mountain");
     }
 
+    public static void main(String[] args) {
+        MapBuilder map=new MapBuilder("../ZorkArtOffline/src/main/resources/SampleMap");
+        map.constructFinalMap();
+        map.spawnMonster(20);
+        System.out.println(map.getMonsterLocation().toString());
+        Integer test=map.getMonsterLocation().get(0);
+        System.out.println(map.getMap()[test/map.getSize()][test%map.getSize()].getHostility());
+        System.out.println(map.getMap()[test/map.getSize()][test%map.getSize()].getId());
+        map.moveMonster();
+        System.out.println(map.getMonsterLocation().toString());
+        Integer test2=map.getMonsterLocation().get(0);
+        System.out.println(map.getMap()[test/map.getSize()][test%map.getSize()].getHostility());
+        System.out.println(map.getMap()[test/map.getSize()][test%map.getSize()].getId());
+        System.out.println(map.getMap()[test2/map.getSize()][test2%map.getSize()].getHostility());
+        System.out.println(map.getMap()[test2/map.getSize()][test2%map.getSize()].getId());
+    }
 }

@@ -6,7 +6,7 @@ import ooc.hw2.helper.Pair;
 
 public class Monster extends Enemy {
 
-    public Monster(Integer size){
+    public Monster(){
         hp=100;
         attack=10;
         defence=5;

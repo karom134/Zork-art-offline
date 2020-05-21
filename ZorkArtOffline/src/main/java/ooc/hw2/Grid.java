@@ -31,6 +31,14 @@ public class Grid {
         hostility=false;
     }
 
+    public Boolean getHostility() {
+        return hostility;
+    }
+
+    public Enemy getEnemy() {
+        return enemy;
+    }
+
     public void setTerrain(String type){
         this.terrain=type;
     }
