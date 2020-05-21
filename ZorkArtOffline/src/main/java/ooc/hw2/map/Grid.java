@@ -1,4 +1,4 @@
-package ooc.hw2;
+package ooc.hw2.map;
 
 import ooc.hw2.hostileunit.Enemy;
 

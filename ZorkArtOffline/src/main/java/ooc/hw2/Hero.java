@@ -2,6 +2,7 @@ package ooc.hw2;
 
 import ooc.hw2.item.Inventory;
 import ooc.hw2.item.Sword;
+import ooc.hw2.map.Grid;
 
 public class Hero {
     private Integer hp;

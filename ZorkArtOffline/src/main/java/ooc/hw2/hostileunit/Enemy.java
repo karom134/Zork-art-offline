@@ -1,6 +1,5 @@
 package ooc.hw2.hostileunit;
 
-import ooc.hw2.Grid;
 import ooc.hw2.helper.Pair;
 
 public abstract class Enemy {

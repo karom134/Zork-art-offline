@@ -36,7 +36,13 @@ public class AttackCommand implements Command {
 
     @Override
     public void execute(String word2) {
-        int netAttack=hero.getAttack()+hero.checkWeapons().getAttackDamage();
+        int netAttack;
+        if(hero.getLocation().getTerrain().equals("Tundra")) {
+            netAttack = (int) (Math.round(hero.getAttack()*0.9) + hero.checkWeapons().getAttackDamage());
+        }
+        else{
+            netAttack = hero.getAttack() + hero.checkWeapons().getAttackDamage();
+        }
         int damageReduction= Math.toIntExact(Math.round(Math.pow(monster.getDefence(), ((double) 1) / 2) * 2));
         if(word2.equals("skill1") && hero.getSkill1()){
             double skillDamage=netAttack*1.3;

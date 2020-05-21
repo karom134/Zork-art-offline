@@ -1,4 +1,4 @@
-package ooc.hw2;
+package ooc.hw2.map;
 
 import ooc.hw2.hostileunit.BossMonster;
 import ooc.hw2.hostileunit.MainBoss;
@@ -6,7 +6,7 @@ import ooc.hw2.hostileunit.MainBoss;
 import java.io.*;
 import java.util.*;
 
-public class MapBuilder extends MapAction{
+public class MapBuilder extends MapAction {
 
     public MapBuilder(String path){
         this.path=new File(path);

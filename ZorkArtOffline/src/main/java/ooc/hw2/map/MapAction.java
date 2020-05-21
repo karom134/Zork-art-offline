@@ -1,7 +1,8 @@
-package ooc.hw2;
+package ooc.hw2.map;
 
 import ooc.hw2.hostileunit.Enemy;
 import ooc.hw2.hostileunit.Monster;
+import ooc.hw2.map.Grid;
 
 import java.io.File;
 import java.util.*;

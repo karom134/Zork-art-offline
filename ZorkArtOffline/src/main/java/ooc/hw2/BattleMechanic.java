@@ -24,7 +24,12 @@ public class BattleMechanic {
     }
     public void retaliate(){
         Integer rawDamage=monster.attack();
-        int damageReduction= Math.toIntExact(Math.round(Math.pow(monster.getDefence(), ((double) 1) / 2) * 2));
+        int damageReduction;
+        if(!hero.getLocation().getTerrain().equals("Forest")) {
+            damageReduction=Math.toIntExact(Math.round(Math.pow(hero.getDefence(), ((double) 1) / 2) * 2));
+        }else{
+            damageReduction=Math.toIntExact(Math.round(Math.pow(hero.getDefence(), ((double) 1) / 2) * 2*0.9));
+        }
         int netDamage=Math.toIntExact(Math.round(rawDamage*(1-((double) damageReduction)/100)));
         if(Math.random()<((double)hero.getEvasion())/100){
             System.out.println("You evade the attack");
@@ -52,7 +57,15 @@ public class BattleMechanic {
                 System.out.println("We don't know that command or that command can't be used right now.");
             }
             retaliate();
-            hero.updateHpMp(1, 1);
+            if(hero.getLocation().getTerrain().equals("Dessert")) {
+                hero.updateHpMp(-2, 1);
+            }
+            else if(hero.getLocation().getTerrain().equals("Mountain")){
+                hero.updateHpMp(1, -2);
+            }
+            else{
+                hero.updateHpMp(1,1);
+            }
             System.out.println("Monster:" + monster.getHp() + " Hero:"
                     + hero.getHp().toString() + "/" + hero.getMaxHp());
             end = isEnd();
