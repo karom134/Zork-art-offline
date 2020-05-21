@@ -2,12 +2,12 @@ package ooc.hw2.hostileunit;
 
 public class BossMonster extends Enemy{
 
-    public BossMonster(Integer location){
+    public BossMonster(){
         this.hp=1000;
         this.attack=50;
         this.defence=100;
         this.lifeCycle=0;
-        this.location=location;
+
     }
 
     @Override

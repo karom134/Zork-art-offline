@@ -20,6 +20,7 @@ public class Hero {
     private Boolean skill3;
     private Boolean skill4;
     private Inventory inventory;
+    private Grid location;
 
     public Hero(){
         this.hp=100;
@@ -38,6 +39,10 @@ public class Hero {
         this.skill3=false;
         this.skill4=false;
         this.inventory=new Inventory();
+    }
+
+    public Grid getLocation() {
+        return location;
     }
 
     public Inventory getInventory() {
@@ -160,5 +165,8 @@ public class Hero {
             skill2=true;
         }
         skill1=true;
+    }
+    public void setLocation(Grid location) {
+        this.location = location;
     }
 }

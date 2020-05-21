@@ -7,7 +7,6 @@ public class Grid {
     private Enemy enemy;
     private Boolean hostility;
     private String terrain;
-    private double multiplier;
 
     public Grid(Integer num){
         id=num;
@@ -23,6 +22,10 @@ public class Grid {
         return id;
     }
 
+    public String getTerrain() {
+        return terrain;
+    }
+
     public void removeMonster(){
         this.enemy=null;
         hostility=false;
@@ -32,7 +35,4 @@ public class Grid {
         this.terrain=type;
     }
 
-    public void setMultiplier(double factor){
-        this.multiplier=factor;
-    }
 }
