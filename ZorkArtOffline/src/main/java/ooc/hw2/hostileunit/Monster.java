@@ -12,13 +12,12 @@ public class Monster extends Enemy {
         defence=5;
         this.lifeCycle=0;
     }
-    public Monster(Integer health, Integer attack, Integer defence,
-                   Pair location){
+    public Monster(Integer health, Integer attack, Integer defence,Integer lifeCycle
+                   ){
         hp=health;
         this.attack=attack;
         this.defence=defence;
-        this.location=location;
-
+        this.lifeCycle=lifeCycle;
     }
     @Override
     public Integer attack() {
