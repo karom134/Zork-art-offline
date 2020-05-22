@@ -19,7 +19,13 @@ public class PlayCommand implements Command{
             System.out.println("Command won't work as you already in the game");
         }
         else{
-            game.createMap(word2);
+            if(!word2.equals("Sample")){
+                System.out.println("please enter the name of existing map");
+                System.out.println("Existing map name: Sample");
+            }else{
+                game.createMap(word2);
+            }
+
         }
     }
 }

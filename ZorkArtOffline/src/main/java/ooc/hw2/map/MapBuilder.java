@@ -22,6 +22,7 @@ public class MapBuilder extends MapAction {
         }
     }
     public void getMapData() throws IOException {
+        System.out.println("Loading map data");
         FileReader fileReader = new FileReader(path);
         BufferedReader reader=new BufferedReader(fileReader);
         String line;
@@ -68,6 +69,7 @@ public class MapBuilder extends MapAction {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("Map construction begin");
         constructEmptyMap();
         for(int i=0;i<size*size;i++){
             if(forestTile.contains(i)){
@@ -110,7 +112,7 @@ public class MapBuilder extends MapAction {
     }
 
     public static void main(String[] args) {
-        MapBuilder map=new MapBuilder("../ZorkArtOffline/src/main/resources/SampleMap");
+        MapBuilder map=new MapBuilder("../ZorkArtOffline/src/main/resources/Sample");
         map.constructFinalMap();
         System.out.println(map.getMonsterLocation().toString());
         Integer test=map.getMonsterLocation().get(0);

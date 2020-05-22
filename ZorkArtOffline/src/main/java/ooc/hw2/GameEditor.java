@@ -18,9 +18,10 @@ public abstract class GameEditor {
         String defaultPath="../ZorkArtOffline/src/main/resources/";
         String combinedPath=defaultPath+path;
         mapBuilder=new MapBuilder(combinedPath);
+        mapBuilder.constructFinalMap();
         mapExist=true;
         map=mapBuilder.getMap();
-        System.out.println("Map build complete");
+        System.out.println("Map construction complete");
     }
 
     public Boolean getMapExist() {
