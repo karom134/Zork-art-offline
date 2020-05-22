@@ -103,4 +103,7 @@ public abstract class MapAction {
         return allMove;
     }
 
+    public Integer getSpawn() {
+        return spawn;
+    }
 }

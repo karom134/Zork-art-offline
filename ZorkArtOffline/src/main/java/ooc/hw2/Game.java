@@ -17,18 +17,31 @@ public class Game extends GameEditor implements CommandProcessor {
         commandFactory.addCommand("drink",new DrinkCommand(hero));
         commandFactory.addCommand("take",new TakeCommand(hero));
         commandFactory.addCommand("drop",new DropCommand(hero));
-        commandFactory.addCommand("Info",new InfoCommand(hero));
+        commandFactory.addCommand("info",new InfoCommand(hero));
         commandFactory.addCommand("upgrade",new UpgradeCommand(hero));
+    }
+
+    public void removeGamePlayCommand(){
+        commandFactory.removeCommand("map");
+        commandFactory.removeCommand("battle");
+        commandFactory.removeCommand("drink");
+        commandFactory.removeCommand("take");
+        commandFactory.removeCommand("drop");
+        commandFactory.removeCommand("info");
+        commandFactory.removeCommand("upgrade");
     }
     public void play(){
         while(!(quit||gameClear)){
             processCommand(parser,commandFactory);
             generateGamePlayCommand();
+            Integer spawn=mapBuilder.getSpawn();
+            hero.setLocation(map[spawn/mapBuilder.getSize()][spawn%mapBuilder.getSize()]);
             while(mapExist){
                 System.out.println("The game is playable");
                 processCommand(parser,commandFactory);
                 mapBuilder.moveMonster();
             }
+            removeGamePlayCommand();
         }
     }
 

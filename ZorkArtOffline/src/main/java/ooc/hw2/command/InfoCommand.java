@@ -17,11 +17,12 @@ public class InfoCommand implements Command {
 
     @Override
     public void execute(String word2) {
+        System.out.println("Level:"+hero.getLevel().toString());
         System.out.println("HP:"+hero.getHp().toString()+"/"+hero.getMaxHp().toString());
         System.out.println("MP:"+hero.getMp().toString()+"/"+hero.getMaxMp().toString());
         System.out.println("Attack:"+hero.getAttack().toString());
         System.out.println("Defence:"+hero.getDefence().toString());
-        System.out.println("Evasion"+hero.getLevel().toString());
+        System.out.println("Evasion"+hero.getEvasion().toString());
         System.out.println("Weapon"+hero.checkWeapons().getAttackDamage().toString());
         System.out.println("Inventory"+hero.getInventory().toString());
         System.out.println("Unused Stat Point:"+hero.getStatPoint().toString());

@@ -37,7 +37,7 @@ public class Inventory {
         bagPack.put(itemName, pair);
     }
     public Item accessItem(String arg){
-        if((Integer) bagPack.get(arg).getFirst()!=0) {
+        if((Integer) bagPack.get(arg).getSecond()!=0) {
             return (Item) bagPack.get(arg).getFirst();
         }
         else{
