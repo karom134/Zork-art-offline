@@ -4,6 +4,8 @@ import ooc.hw2.command.CommandFactory;
 import ooc.hw2.map.Grid;
 import ooc.hw2.map.MapBuilder;
 
+import java.util.List;
+
 public abstract class GameEditor {
     public Hero hero;
     public MapBuilder mapBuilder;
@@ -13,6 +15,7 @@ public abstract class GameEditor {
     public Boolean quit;
     public Grid[][] map;
     public Parser parser;
+    public List<Integer> defeatedBoss;
 
     public void createMap(String path){
         String defaultPath="../ZorkArtOffline/src/main/resources/";

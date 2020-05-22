@@ -16,7 +16,13 @@ public class TakeCommand implements Command{
     @Override
     public void execute(String word2) {
         if(hero.getLocation().getItemExist()){
+            if(hero.getInventory().getItemCount()<=40){
             hero.getInventory().addItem(hero.getLocation().getItem());
+            hero.getLocation().removeItem();
+            }
+            else{
+                System.out.println("Your inventory is full");
+            }
         }
         else{
             System.out.println("No item in this room");

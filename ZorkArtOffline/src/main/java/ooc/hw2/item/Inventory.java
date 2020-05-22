@@ -8,19 +8,23 @@ import ooc.hw2.helper.Pair;
 
 public class Inventory {
     private Map<String,Pair> bagPack;
+    private Integer itemCount;
     public Inventory(){
         bagPack=new HashMap<>();
         bagPack.put("potion", new Pair(new Potion(),0));
         bagPack.put("Spotion", new Pair(new SuperPotion(),0));
         bagPack.put("Hpotion", new Pair(new HyperPotion(),0));
         bagPack.put("Mpotion", new Pair(new MaxPotion(),0));
+        itemCount=0;
     }
 
     public Inventory(Map<String,Pair> map){
         bagPack=map;
+        itemCount=0;
     }
 
     public void dropItem(String itemName) {
+        itemCount-=1;
         Pair pair=bagPack.get(itemName);
         if (((Integer)pair.getSecond()) != 0) {
             pair.setSecond(((Integer)pair.getSecond())-1);
@@ -32,10 +36,16 @@ public class Inventory {
     }
 
     public void addItem(String itemName) {
+        itemCount+=1;
         Pair pair=bagPack.get(itemName);
         pair.setSecond(((Integer)pair.getSecond())+1);
         bagPack.put(itemName, pair);
     }
+
+    public Integer getItemCount() {
+        return itemCount;
+    }
+
     public Item accessItem(String arg) {
         if (!bagPack.containsKey(arg)) {
             System.out.println("Invalid item name");
@@ -49,6 +59,7 @@ public class Inventory {
             }
         }
     }
+
     public Map<String, Pair> getBagPack() {
         return bagPack;
     }

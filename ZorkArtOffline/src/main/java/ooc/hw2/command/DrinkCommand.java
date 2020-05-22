@@ -20,6 +20,6 @@ public class DrinkCommand implements Command{
             Integer effect=potion.use();
             hero.updateHpMp(effect,0);
         }
-
+        hero.getInventory().dropItem(word2);
     }
 }

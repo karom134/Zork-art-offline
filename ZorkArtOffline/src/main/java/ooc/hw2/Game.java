@@ -3,6 +3,8 @@ package ooc.hw2;
 import ooc.hw2.command.*;
 import ooc.hw2.hostileunit.Enemy;
 
+import java.util.ArrayList;
+
 public class Game extends GameEditor implements CommandProcessor {
     public Game(CommandFactory commandFactory){
         hero=new Hero();
@@ -11,6 +13,7 @@ public class Game extends GameEditor implements CommandProcessor {
         this.gameClear=false;
         this.quit=false;
         parser=new Parser();
+        this.defeatedBoss=new ArrayList<>();
     }
     public void generateGamePlayCommand(){
         commandFactory.addCommand("map", new MapCommand(mapBuilder));
@@ -22,6 +25,7 @@ public class Game extends GameEditor implements CommandProcessor {
         commandFactory.addCommand("upgrade",new UpgradeCommand(hero));
         commandFactory.addCommand("go",new GoCommand(hero,map));
     }
+
     public void afterBattleCalculation(){
         if(hero.getLocation().getHostility()) {
             Enemy monster = hero.getLocation().getEnemy();
@@ -29,14 +33,17 @@ public class Game extends GameEditor implements CommandProcessor {
                 if (monster.getStatus().equals("roaming")) {
                     hero.updateExperience(20 + monster.getLifeCycle() * 3);
                     hero.checkWeapons().upgrade();
+                    mapBuilder.getMonsterLocation().remove(hero.getLocation().getId());
                     mapBuilder.spawnMonster(1);
                 } else if (monster.getStatus().equals("terrain boss")) {
                     hero.updateExperience(1500);
                     hero.unlockSkill();
+                    defeatedBoss.add(hero.getLocation().getId());
                 } else if (monster.getStatus().equals("calamity boss")) {
                     gameClear = true;
                 }
                 hero.getLocation().removeMonster();
+
             }
         }
     }
@@ -76,6 +83,17 @@ public class Game extends GameEditor implements CommandProcessor {
                 processCommand(parser,commandFactory);
                 afterBattleCalculation();
                 mapBuilder.moveMonster();
+                System.out.println(mapBuilder.getMonsterLocation().toString());
+                mapBuilder.spawnItem(1);
+                if(hero.getLocation().getTerrain().equals("Mountain")){
+                    hero.updateHpMp(0,-2);
+                }
+                else if(hero.getLocation().getTerrain().equals("Dessert")){
+                    hero.updateHpMp(-2,0);
+                }
+                else{
+                    hero.updateHpMp(1,1);
+                }
             }
             removeGamePlayCommand();
         }

@@ -51,7 +51,7 @@ public class Grid {
         this.item=item;
     }
 
-    public void removeItem(Item item){
+    public void removeItem(){
         this.item=null;
         this.itemExist=false;
     }

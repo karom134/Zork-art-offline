@@ -22,6 +22,8 @@ public abstract class MapAction {
     public Map<String,String> asciiMap =new HashMap<>();
     public List<Integer> monsterLocation=new ArrayList<>();
     public Random random=new Random();
+    public List<Integer> itemLoc=new ArrayList<>();
+
     public void constructAsciiMap(){
         asciiMap.put("Plain","@");
         asciiMap.put("Forest","#");
@@ -40,6 +42,30 @@ public abstract class MapAction {
             if(!monsterLocation.contains(loc) && !loc.equals(finalBoss) && !bossLocation.contains(loc)){
                 map[loc/size][loc%size].addMonster(new Monster());
                 monsterLocation.add(loc);
+            }
+        }
+    }
+    public String randomItem(){
+        double tmp=Math.random();
+        if(tmp<=0.25){
+            return "potion";
+        }
+        else if(tmp<=50){
+            return "Spotion";
+        }
+        else if(tmp<=0.75){
+            return "Hpotion";
+        }
+        else{
+            return "Mpotion";
+        }
+    }
+
+    public void spawnItem(Integer num){
+        for(int i=0;i<num;i++){
+            Integer loc=random.nextInt(size*size);
+            if(!itemLoc.contains(loc)){
+                map[loc/size][loc%size].addItem(randomItem());
             }
         }
     }

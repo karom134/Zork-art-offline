@@ -21,6 +21,7 @@ public class BattleCommand implements Command{
     @Override
     public void execute(String word2) {
         if(hero.getLocation().getHostility()){
+            System.out.println("You enter the battle with monster some command will be disable.");
             Enemy enemy=hero.getLocation().getEnemy();
             BattleMechanic battleMechanic=new BattleMechanic(hero,enemy,commandFactory);
             battleMechanic.battle();
