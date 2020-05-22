@@ -48,4 +48,12 @@ public class Inventory {
     public Map<String, Pair> getBagPack() {
         return bagPack;
     }
+
+    public String toString(){
+        String tmp="";
+        for(String key:bagPack.keySet()){
+            tmp=tmp+key+":"+bagPack.get(key).getSecond()+" ";
+        }
+        return tmp;
+    }
 }

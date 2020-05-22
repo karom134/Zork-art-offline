@@ -68,6 +68,10 @@ public class Hero {
         return hp;
     }
 
+    public Integer getStatPoint() {
+        return statPoint;
+    }
+
     public Integer getMaxHp() {
         return maxHp;
     }

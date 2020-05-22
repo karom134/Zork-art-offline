@@ -1,8 +1,6 @@
 package ooc.hw2;
 
-import ooc.hw2.command.CommandFactory;
-import ooc.hw2.command.CommandProcessor;
-import ooc.hw2.command.MapCommand;
+import ooc.hw2.command.*;
 
 public class Game extends GameEditor implements CommandProcessor {
     public Game(CommandFactory commandFactory){
@@ -15,6 +13,12 @@ public class Game extends GameEditor implements CommandProcessor {
     }
     public void generateGamePlayCommand(){
         commandFactory.addCommand("map", new MapCommand(mapBuilder));
+        commandFactory.addCommand("battle",new BattleCommand(hero,commandFactory));
+        commandFactory.addCommand("drink",new DrinkCommand(hero));
+        commandFactory.addCommand("take",new TakeCommand(hero));
+        commandFactory.addCommand("drop",new DropCommand(hero));
+        commandFactory.addCommand("Info",new InfoCommand(hero));
+        commandFactory.addCommand("upgrade",new UpgradeCommand(hero));
     }
     public void play(){
         while(!(quit||gameClear)){
@@ -23,6 +27,7 @@ public class Game extends GameEditor implements CommandProcessor {
             while(mapExist){
                 System.out.println("The game is playable");
                 processCommand(parser,commandFactory);
+                mapBuilder.moveMonster();
             }
         }
     }

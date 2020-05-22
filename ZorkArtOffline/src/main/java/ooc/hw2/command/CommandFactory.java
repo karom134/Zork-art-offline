@@ -19,7 +19,7 @@ public class CommandFactory {
     }
     //If availableCommands empty==no limitation on using command.
     public Boolean checkAvailability(String key){
-        return availableCommands.isEmpty()||availableCommands.contains(key);
+        return (availableCommands.isEmpty()||availableCommands.contains(key))&& commands.containsKey(key);
     }
     public Command accessCommand(String key){
         return commands.get(key);
@@ -27,5 +27,6 @@ public class CommandFactory {
     public void addCommand(String key,Command command){
         commands.put(key,command);
     }
+    public void removeCommand(String key){commands.remove(key);}
 }
 

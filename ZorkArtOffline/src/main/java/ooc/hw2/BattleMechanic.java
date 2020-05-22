@@ -65,5 +65,6 @@ public class BattleMechanic implements CommandProcessor {
             end = isEnd();
         }
         commandFactory.resetAvailableCommand();
+        commandFactory.removeCommand("attack");
     }
 }
