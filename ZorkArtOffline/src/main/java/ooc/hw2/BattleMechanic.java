@@ -2,12 +2,13 @@ package ooc.hw2;
 
 import ooc.hw2.command.AttackCommand;
 import ooc.hw2.command.CommandFactory;
+import ooc.hw2.command.CommandProcessor;
 import ooc.hw2.hostileunit.Enemy;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class BattleMechanic {
+public class BattleMechanic implements CommandProcessor {
     private Hero hero;
     private Enemy monster;
     private CommandFactory commandFactory;
@@ -48,14 +49,7 @@ public class BattleMechanic {
         set.add("help");
         commandFactory.setAvailableCommands(set);
         while (!end) {
-            String input = parser.getCommand();
-            String word1 = input.split("/")[0];
-            String word2 = input.split("/")[1];
-            if (commandFactory.checkAvailability(word1)) {
-                commandFactory.accessCommand(word1).execute(word2);
-            } else {
-                System.out.println("We don't know that command or that command can't be used right now.");
-            }
+            processCommand(parser,commandFactory);
             retaliate();
             if(hero.getLocation().getTerrain().equals("Dessert")) {
                 hero.updateHpMp(-2, 1);
