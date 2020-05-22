@@ -90,7 +90,13 @@ public abstract class MapAction {
             }
         }
     }
-
+    public void upgradeAllMonster(){
+        for(int idx=0;idx<monsterLocation.size();idx++){
+            Integer loc=monsterLocation.get(idx);
+            Enemy enemy=map[loc/size][loc%size].getEnemy();
+            enemy.updateMonster();
+        }
+    }
     public List<Integer> getMonsterLocation() {
         return monsterLocation;
     }

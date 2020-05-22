@@ -30,9 +30,6 @@ public class Inventory {
             pair.setSecond(((Integer)pair.getSecond())-1);
             bagPack.put(itemName, pair);
         }
-        else{
-            System.out.println("You can't drop the item you don't have");
-        }
     }
 
     public void addItem(String itemName) {

@@ -133,6 +133,7 @@ public class Hero {
 //Spend stat point on to hero(Just for variation of the gameplay experience).
     public void updateStatPoint(String arg){
         if(this.statPoint !=0){
+            System.out.println(arg+" has increased by 1");
             switch (arg) {
                 case "atk":
                     this.attack += 1;

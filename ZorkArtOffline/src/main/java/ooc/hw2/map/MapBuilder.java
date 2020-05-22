@@ -94,7 +94,6 @@ public class MapBuilder extends MapAction {
                 map[i/size][i%size].addMonster(new BossMonster());
             }
         }
-        spawnMonster(20);
     }
 
     public Grid[][] getMap() {
