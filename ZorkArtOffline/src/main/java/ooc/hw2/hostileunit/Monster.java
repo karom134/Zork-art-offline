@@ -8,6 +8,7 @@ public class Monster extends Enemy {
         attack=10;
         defence=5;
         this.lifeCycle=0;
+        status="roaming";
     }
     public Monster(Integer health, Integer attack, Integer defence,Integer lifeCycle
                    ){

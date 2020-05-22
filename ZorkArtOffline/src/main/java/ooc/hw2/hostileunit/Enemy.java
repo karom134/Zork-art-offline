@@ -8,6 +8,8 @@ public abstract class Enemy {
     public Integer defence;
     public Pair location;
     public Integer lifeCycle;
+    public String status;
+    public String getStatus(){return this.status;}
     public Integer getHp(){
         return this.hp;
     }

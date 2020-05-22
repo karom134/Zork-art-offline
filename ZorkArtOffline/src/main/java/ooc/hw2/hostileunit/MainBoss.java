@@ -7,6 +7,7 @@ public class MainBoss extends Enemy {
         attack=350;
         defence=625;
         lifeCycle=0;
+        status="calamity boss";
     }
     @Override
     public Integer attack() {
