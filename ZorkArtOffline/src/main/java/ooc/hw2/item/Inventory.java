@@ -36,13 +36,17 @@ public class Inventory {
         pair.setSecond(((Integer)pair.getSecond())+1);
         bagPack.put(itemName, pair);
     }
-    public Item accessItem(String arg){
-        if((Integer) bagPack.get(arg).getSecond()!=0) {
-            return (Item) bagPack.get(arg).getFirst();
-        }
-        else{
-            System.out.println("You don't have that item in the inventory");
+    public Item accessItem(String arg) {
+        if (!bagPack.containsKey(arg)) {
+            System.out.println("Invalid item name");
             return null;
+        } else {
+            if ((Integer) bagPack.get(arg).getSecond() != 0) {
+                return (Item) bagPack.get(arg).getFirst();
+            } else {
+                System.out.println("You don't have that item in the inventory");
+                return null;
+            }
         }
     }
     public Map<String, Pair> getBagPack() {

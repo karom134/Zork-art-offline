@@ -1,7 +1,7 @@
 package ooc.hw2.item;
 
 public class SuperPotion implements Item{
-    private String name="Super potion";
+    private String name="Spotion";
 
     @Override
     public String getName() {

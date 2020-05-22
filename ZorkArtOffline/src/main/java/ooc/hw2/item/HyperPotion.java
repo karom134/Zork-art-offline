@@ -1,7 +1,7 @@
 package ooc.hw2.item;
 
 public class HyperPotion implements Item {
-    private String name="Hyper potion";
+    private String name="Hpotion";
 
     @Override
     public String getName() {
