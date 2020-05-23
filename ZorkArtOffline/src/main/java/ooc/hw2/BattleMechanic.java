@@ -50,7 +50,7 @@ public class BattleMechanic implements CommandProcessor {
         commandFactory.setAvailableCommands(set);
         while (!end) {
             processCommand(parser,commandFactory);
-            if(monster.getHp()<=0) {
+            if(monster.getHp()>0) {
                 retaliate();
             }
             if(hero.getLocation().getTerrain().equals("Dessert")) {

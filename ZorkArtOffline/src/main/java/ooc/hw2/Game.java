@@ -14,6 +14,7 @@ public class Game extends GameEditor implements CommandProcessor {
         this.quit=false;
         parser=new Parser();
         this.defeatedBoss=new ArrayList<>();
+        loaded=false;
     }
     public void setLoaded(){
         loaded=true;

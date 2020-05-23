@@ -1,3 +1,4 @@
 /ZorkArtOffline/build/
 /ZorkArtOffline/.idea/
 /ZorkArtOffline/.gradle/
+*.json

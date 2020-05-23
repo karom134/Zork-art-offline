@@ -1,9 +1,6 @@
 package ooc.hw2;
 
-import ooc.hw2.command.CommandFactory;
-import ooc.hw2.command.ExitCommand;
-import ooc.hw2.command.PlayCommand;
-import ooc.hw2.command.QuitCommand;
+import ooc.hw2.command.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,6 +9,7 @@ public class Main {
         commandFactory.addCommand("play",new PlayCommand(game));
         commandFactory.addCommand("exit",new ExitCommand(game));
         commandFactory.addCommand("quit",new QuitCommand(game));
+        commandFactory.addCommand("save",new SaveCommand(game));
         game.play();
     }
 }

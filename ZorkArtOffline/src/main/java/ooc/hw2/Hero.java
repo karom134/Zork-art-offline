@@ -104,6 +104,10 @@ public class Hero {
         return skill4;
     }
 
+    public Integer getExperiencePoint() {
+        return experiencePoint;
+    }
+
     //Update the change in hp/mp of hero.
     public void updateHpMp(Integer changeHp,Integer changeMp){
         this.hp=Math.min(this.hp+=changeHp,this.maxHp);

@@ -50,7 +50,7 @@ public abstract class MapAction {
         if(tmp<=0.25){
             return "potion";
         }
-        else if(tmp<=50){
+        else if(tmp<=0.50){
             return "Spotion";
         }
         else if(tmp<=0.75){

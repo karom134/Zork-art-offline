@@ -17,8 +17,10 @@ public abstract class GameEditor {
     public Parser parser;
     public List<Integer> defeatedBoss;
     public Boolean loaded;
+    public String mapId;
 
     public void createMap(String path){
+        mapId=path;
         String defaultPath="../ZorkArtOffline/src/main/resources/";
         String combinedPath=defaultPath+path;
         mapBuilder=new MapBuilder(combinedPath);
@@ -39,4 +41,22 @@ public abstract class GameEditor {
     public void quitGame(){
         quit=true;
     }
+
+    public Hero getHero() {
+        return hero;
+    }
+
+    public String getMapId() {
+        return mapId;
+    }
+
+    public MapBuilder getMapBuilder() {
+        return mapBuilder;
+    }
+
+    public List<Integer> getDefeatedBoss() {
+        return defeatedBoss;
+    }
+
+
 }
