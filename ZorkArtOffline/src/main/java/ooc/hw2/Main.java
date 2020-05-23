@@ -11,6 +11,7 @@ public class Main {
         commandFactory.addCommand("quit",new QuitCommand(game));
         commandFactory.addCommand("save",new SaveCommand(game));
         commandFactory.addCommand("load",new LoadCommand(game));
+        commandFactory.addCommand("help", new HelpCommand(commandFactory));
         game.play();
     }
 }

@@ -14,6 +14,10 @@ public class CommandFactory {
         availableCommands=set;
     }
 
+    public Map<String, Command> getCommands() {
+        return commands;
+    }
+
     public void resetAvailableCommand(){
         availableCommands.clear();
     }

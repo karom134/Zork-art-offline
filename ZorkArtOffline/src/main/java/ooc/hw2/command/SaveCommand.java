@@ -11,7 +11,7 @@ public class SaveCommand implements Command{
 
     @Override
     public String getDescription() {
-        return "use this to save the game";
+        return "use this to save the game need state's argument";
     }
 
     @Override

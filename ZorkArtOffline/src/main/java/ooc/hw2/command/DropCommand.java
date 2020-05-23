@@ -10,7 +10,8 @@ public class DropCommand implements Command{
 
     @Override
     public String getDescription() {
-        return "Drop item from your bag to prove that you need no healing";
+        return "Drop item from your bag to prove that you need no healing need item argument" +
+                "(potion, Spotion, Hpotion, Mpotion)";
     }
 
     @Override

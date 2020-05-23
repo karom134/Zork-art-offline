@@ -9,7 +9,8 @@ public class UpgradeCommand implements Command{
     }
     @Override
     public String getDescription() {
-        return "Use this command to upgrade your hero after level up.";
+        return "Use this command to upgrade your hero after level up." +
+                "Need status argument (atk,eva,def)";
     }
 
     @Override

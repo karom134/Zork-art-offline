@@ -10,7 +10,8 @@ public class DrinkCommand implements Command{
     }
     @Override
     public String getDescription() {
-        return "Use this command to drink potion if needed";
+        return "Use this command to drink potion if needed require item argument" +
+                "(potion, Spotion, Hpotion, Mpotion)";
     }
 
     @Override

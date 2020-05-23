@@ -32,7 +32,7 @@ public class GoCommand implements Command{
 
     @Override
     public String getDescription() {
-        return "Use this to move around the map";
+        return "Use this to move around the map need argument(n,ne,nw,w,e,s,se,sw)";
     }
 
     @Override
