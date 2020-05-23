@@ -16,10 +16,10 @@ public class Hero {
     private Integer experiencePoint;
     private Integer statPoint;
     private Sword sword;
-    private Boolean skill1;
-    private Boolean skill2;
-    private Boolean skill3;
-    private Boolean skill4;
+    private Boolean skill1=false;
+    private Boolean skill2=false;
+    private Boolean skill3=false;
+    private Boolean skill4=false;
     private Inventory inventory;
     private Grid location;
 
@@ -35,11 +35,13 @@ public class Hero {
         this.maxMp=100;
         this.statPoint =10;
         sword=new Sword();
-        this.skill1=false;
-        this.skill2=false;
-        this.skill3=false;
-        this.skill4=false;
         this.inventory=new Inventory();
+    }
+
+    public Hero(Integer level,Integer attack,Integer defence,Integer evasion,Integer exp,Integer statPoint,
+                Sword sword,Inventory inventory){
+
+
     }
 
     public Grid getLocation() {

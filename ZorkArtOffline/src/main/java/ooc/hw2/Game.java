@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Game extends GameEditor implements CommandProcessor {
     public Game(CommandFactory commandFactory){
-        hero=new Hero();
         this.commandFactory=commandFactory;
         this.mapExist=false;
         this.gameClear=false;
@@ -38,8 +37,10 @@ public class Game extends GameEditor implements CommandProcessor {
                     hero.updateExperience(20 + monster.getLifeCycle() * 3);
                     hero.checkWeapons().upgrade();
                     mapBuilder.getMonsterLocation().remove(hero.getLocation().getId());
+                    //System.out.println(mapBuilder.getMonsterLocation().toString());
                     mapBuilder.upgradeAllMonster();
                     mapBuilder.spawnMonster(1);
+                    //System.out.println(mapBuilder.getMonsterLocation().toString());
                 } else if (monster.getStatus().equals("terrain boss")) {
                     hero.updateExperience(1500);
                     hero.unlockSkill();
@@ -76,6 +77,9 @@ public class Game extends GameEditor implements CommandProcessor {
         commandFactory.removeCommand("info");
         commandFactory.removeCommand("upgrade");
         commandFactory.removeCommand("go");
+    }
+    public void setHero(Hero hero){
+        this.hero=hero;
     }
     public void play(){
         while(!(quit||gameClear)){

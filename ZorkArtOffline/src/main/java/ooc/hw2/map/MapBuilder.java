@@ -8,8 +8,7 @@ import java.util.*;
 
 public class MapBuilder extends MapAction {
 
-    public MapBuilder(String path){
-        this.path=new File(path);
+    public MapBuilder(){
         constructAsciiMap();
     }
 
@@ -21,9 +20,9 @@ public class MapBuilder extends MapAction {
             tiles.add(i);
         }
     }
-    public void getMapData() throws IOException {
+    public void getMapData(String path) throws IOException {
         System.out.println("Loading map data");
-        FileReader fileReader = new FileReader(path);
+        FileReader fileReader = new FileReader(new File(path));
         BufferedReader reader=new BufferedReader(fileReader);
         String line;
         while((line = reader.readLine()) != null) {
@@ -63,9 +62,9 @@ public class MapBuilder extends MapAction {
             }
         }
     }
-    public void constructFinalMap(){
+    public void constructFinalMap(String path){
         try {
-            getMapData();
+            getMapData(path);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -111,18 +110,8 @@ public class MapBuilder extends MapAction {
     }
 
     public static void main(String[] args) {
-        MapBuilder map=new MapBuilder("../ZorkArtOffline/src/main/resources/Sample");
-        map.constructFinalMap();
-        System.out.println(map.getMonsterLocation().toString());
-        Integer test=map.getMonsterLocation().get(0);
-        System.out.println(map.getMap()[test/map.getSize()][test%map.getSize()].getHostility());
-        System.out.println(map.getMap()[test/map.getSize()][test%map.getSize()].getId());
-        map.moveMonster();
-        System.out.println(map.getMonsterLocation().toString());
-        Integer test2=map.getMonsterLocation().get(0);
-        System.out.println(map.getMap()[test/map.getSize()][test%map.getSize()].getHostility());
-        System.out.println(map.getMap()[test/map.getSize()][test%map.getSize()].getId());
-        System.out.println(map.getMap()[test2/map.getSize()][test2%map.getSize()].getHostility());
-        System.out.println(map.getMap()[test2/map.getSize()][test2%map.getSize()].getId());
+        MapBuilder map=new MapBuilder();
+        map.constructFinalMap("../ZorkArtOffline/src/main/resources/Sample");
+
     }
 }

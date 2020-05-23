@@ -1,6 +1,7 @@
 package ooc.hw2.command;
 
 import ooc.hw2.Game;
+import ooc.hw2.Hero;
 
 public class PlayCommand implements Command{
     private Game game;
@@ -24,6 +25,7 @@ public class PlayCommand implements Command{
                 System.out.println("Existing map name: Sample");
             }else{
                 game.createMap(word2);
+                game.setHero(new Hero());
             }
 
         }

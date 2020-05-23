@@ -8,7 +8,6 @@ import java.io.File;
 import java.util.*;
 
 public abstract class MapAction {
-    public File path;
     public Grid[][] map;
     public List<Integer> tiles;
     public List<Integer> forestTile=new ArrayList<>();
@@ -37,11 +36,13 @@ public abstract class MapAction {
     }
 
     public void spawnMonster(Integer number){
-        for(int i=0;i<number;i++){
+        Integer count=0;
+        while(count<number){
             Integer loc=random.nextInt(size*size);
             if(!monsterLocation.contains(loc) && !loc.equals(finalBoss) && !bossLocation.contains(loc)){
                 map[loc/size][loc%size].addMonster(new Monster());
                 monsterLocation.add(loc);
+                count++;
             }
         }
     }

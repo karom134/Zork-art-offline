@@ -24,7 +24,7 @@ public class Monster extends Enemy {
     public void updateMonster(){
             lifeCycle += 1;
             hp += 5;
-            attack += 5;
+            attack += 2;
             defence += 5;
     }
 }

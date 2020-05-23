@@ -23,8 +23,8 @@ public abstract class GameEditor {
         mapId=path;
         String defaultPath="../ZorkArtOffline/src/main/resources/";
         String combinedPath=defaultPath+path;
-        mapBuilder=new MapBuilder(combinedPath);
-        mapBuilder.constructFinalMap();
+        mapBuilder=new MapBuilder();
+        mapBuilder.constructFinalMap(combinedPath);
         mapExist=true;
         map=mapBuilder.getMap();
         System.out.println("Map construction complete");
@@ -44,6 +44,10 @@ public abstract class GameEditor {
 
     public Hero getHero() {
         return hero;
+    }
+
+    public Grid[][] getMap() {
+        return map;
     }
 
     public String getMapId() {
