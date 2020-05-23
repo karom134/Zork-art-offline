@@ -10,6 +10,7 @@ public class Main {
         commandFactory.addCommand("exit",new ExitCommand(game));
         commandFactory.addCommand("quit",new QuitCommand(game));
         commandFactory.addCommand("save",new SaveCommand(game));
+        commandFactory.addCommand("load",new LoadCommand(game));
         game.play();
     }
 }

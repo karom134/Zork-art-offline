@@ -91,6 +91,7 @@ public class Game extends GameEditor implements CommandProcessor {
                 mapBuilder.spawnMonster(20);
             }
             while(mapExist){
+                System.out.println(getMapBuilder().getMonsterLocation().toString());
                 printLocationDetail();
                 processCommand(parser,commandFactory);
                 afterBattleCalculation();

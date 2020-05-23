@@ -91,6 +91,11 @@ public abstract class MapAction {
             }
         }
     }
+
+    public void placeMonster(Enemy enemy,Integer location){
+        map[location/size][location%size].addMonster(enemy);
+        monsterLocation.add(location);
+    }
     public void upgradeAllMonster(){
         for(int idx=0;idx<monsterLocation.size();idx++){
             Integer loc=monsterLocation.get(idx);

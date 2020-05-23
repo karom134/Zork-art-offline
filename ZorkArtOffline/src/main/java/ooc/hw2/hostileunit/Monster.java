@@ -15,6 +15,7 @@ public class Monster extends Enemy {
         this.attack=10+5*lifeCycle;
         this.defence=5+5*lifeCycle;
         this.lifeCycle=lifeCycle;
+        status="roaming";
     }
     @Override
     public Integer attack() {

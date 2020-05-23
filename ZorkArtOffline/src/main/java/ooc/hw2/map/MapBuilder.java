@@ -112,6 +112,5 @@ public class MapBuilder extends MapAction {
     public static void main(String[] args) {
         MapBuilder map=new MapBuilder();
         map.constructFinalMap("../ZorkArtOffline/src/main/resources/Sample");
-
     }
 }

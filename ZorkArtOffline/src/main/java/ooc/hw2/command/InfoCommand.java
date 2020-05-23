@@ -23,8 +23,8 @@ public class InfoCommand implements Command {
         System.out.println("Attack:"+hero.getAttack().toString());
         System.out.println("Defence:"+hero.getDefence().toString());
         System.out.println("Evasion"+hero.getEvasion().toString());
-        System.out.println("Weapon"+hero.checkWeapons().getAttackDamage().toString());
-        System.out.println("Inventory"+hero.getInventory().toString());
+        System.out.println("Weapon:"+hero.checkWeapons().getAttackDamage().toString());
+        System.out.println("Inventory:"+hero.getInventory().toString());
         System.out.println("Unused Stat Point:"+hero.getStatPoint().toString());
     }
 }

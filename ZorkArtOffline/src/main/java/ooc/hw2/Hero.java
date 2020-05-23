@@ -1,8 +1,11 @@
 package ooc.hw2;
 
+import ooc.hw2.helper.Pair;
 import ooc.hw2.item.Inventory;
 import ooc.hw2.item.Sword;
 import ooc.hw2.map.Grid;
+
+import java.util.Map;
 
 public class Hero {
     private Integer hp;
@@ -39,8 +42,19 @@ public class Hero {
     }
 
     public Hero(Integer level,Integer attack,Integer defence,Integer evasion,Integer exp,Integer statPoint,
-                Sword sword,Inventory inventory){
-
+                Integer hp,Integer mp, Integer swordDamage, Map<String, Pair> map){
+            this.hp=hp;
+            this.mp=mp;
+            this.level=level;
+            this.maxHp=75+5*this.level;
+            this.maxMp=75+5*this.level;
+            this.statPoint=statPoint;
+            this.experiencePoint=exp;
+            this.evasion=evasion;
+            this.defence=defence;
+            this.attack=attack;
+            this.sword=new Sword(swordDamage);
+            this.inventory=new Inventory(map);
 
     }
 

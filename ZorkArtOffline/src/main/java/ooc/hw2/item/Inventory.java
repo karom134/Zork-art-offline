@@ -21,6 +21,9 @@ public class Inventory {
     public Inventory(Map<String,Pair> map){
         bagPack=map;
         itemCount=0;
+        for(String key:map.keySet()){
+            itemCount+=(Integer) bagPack.get(key).getSecond();
+        }
     }
 
     public void dropItem(String itemName) {
