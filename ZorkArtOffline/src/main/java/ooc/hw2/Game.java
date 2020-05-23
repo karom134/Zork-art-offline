@@ -15,7 +15,9 @@ public class Game extends GameEditor implements CommandProcessor {
         parser=new Parser();
         this.defeatedBoss=new ArrayList<>();
     }
-
+    public void setLoaded(){
+        loaded=true;
+    }
     public void generateGamePlayCommand(){
         commandFactory.addCommand("map", new MapCommand(mapBuilder));
         commandFactory.addCommand("battle",new BattleCommand(hero,commandFactory));
@@ -77,8 +79,8 @@ public class Game extends GameEditor implements CommandProcessor {
     public void play(){
         while(!(quit||gameClear)){
             processCommand(parser,commandFactory);
-            if(mapExist) {
-                generateGamePlayCommand();
+            generateGamePlayCommand();
+            if(mapExist&&!loaded) {
                 Integer spawn = mapBuilder.getSpawn();
                 hero.setLocation(map[spawn / mapBuilder.getSize()][spawn % mapBuilder.getSize()]);
                 mapBuilder.spawnMonster(20);
@@ -95,10 +97,10 @@ public class Game extends GameEditor implements CommandProcessor {
                     mapExist=false;
                 }
                 if(hero.getLocation().getTerrain().equals("Mountain")){
-                    hero.updateHpMp(0,-2);
+                    hero.updateHpMp(1,-2);
                 }
                 else if(hero.getLocation().getTerrain().equals("Dessert")){
-                    hero.updateHpMp(-2,0);
+                    hero.updateHpMp(-2,1);
                 }
                 else{
                     hero.updateHpMp(1,1);

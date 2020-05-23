@@ -6,7 +6,6 @@ public abstract class Enemy {
     public Integer hp;
     public Integer attack;
     public Integer defence;
-    public Pair location;
     public Integer lifeCycle;
     public String status;
     public String getStatus(){return this.status;}
@@ -16,9 +15,6 @@ public abstract class Enemy {
     abstract public Integer attack();
     public Integer getDefence(){
         return this.defence;
-    }
-    public Pair getLocation(){
-        return this.location;
     }
     public void updateHp(Integer netDamage){
         this.hp-=netDamage;

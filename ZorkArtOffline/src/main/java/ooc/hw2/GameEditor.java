@@ -16,7 +16,7 @@ public abstract class GameEditor {
     public Grid[][] map;
     public Parser parser;
     public List<Integer> defeatedBoss;
-
+    public Boolean loaded;
 
     public void createMap(String path){
         String defaultPath="../ZorkArtOffline/src/main/resources/";
