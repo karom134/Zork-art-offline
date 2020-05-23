@@ -1,6 +1,7 @@
 package ooc.hw2;
 
 import ooc.hw2.command.*;
+import ooc.hw2.game.Game;
 
 public class Main {
     public static void main(String[] args) {

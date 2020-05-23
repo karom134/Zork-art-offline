@@ -1,4 +1,4 @@
-package ooc.hw2;
+package ooc.hw2.game;
 
 import ooc.hw2.helper.Pair;
 import ooc.hw2.item.Inventory;

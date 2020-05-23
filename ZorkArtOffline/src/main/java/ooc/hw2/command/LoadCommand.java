@@ -1,7 +1,7 @@
 package ooc.hw2.command;
 
-import ooc.hw2.Game;
-import ooc.hw2.JsonReader;
+import ooc.hw2.game.Game;
+import ooc.hw2.helper.JsonReader;
 
 public class LoadCommand implements Command {
     Game game;

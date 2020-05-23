@@ -1,6 +1,6 @@
 package ooc.hw2.command;
 
-import ooc.hw2.Game;
+import ooc.hw2.game.Game;
 
 public class QuitCommand implements Command{
     private Game game;

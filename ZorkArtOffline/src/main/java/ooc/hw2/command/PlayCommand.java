@@ -1,7 +1,7 @@
 package ooc.hw2.command;
 
-import ooc.hw2.Game;
-import ooc.hw2.Hero;
+import ooc.hw2.game.Game;
+import ooc.hw2.game.Hero;
 
 public class PlayCommand implements Command{
     private Game game;

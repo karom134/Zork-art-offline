@@ -1,7 +1,7 @@
 package ooc.hw2.command;
 
-import ooc.hw2.BattleMechanic;
-import ooc.hw2.Hero;
+import ooc.hw2.game.BattleMechanic;
+import ooc.hw2.game.Hero;
 import ooc.hw2.hostileunit.Enemy;
 
 public class BattleCommand implements Command{

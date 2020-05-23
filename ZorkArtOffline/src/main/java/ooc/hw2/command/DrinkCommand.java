@@ -1,6 +1,6 @@
 package ooc.hw2.command;
 
-import ooc.hw2.Hero;
+import ooc.hw2.game.Hero;
 import ooc.hw2.item.Item;
 
 public class DrinkCommand implements Command{

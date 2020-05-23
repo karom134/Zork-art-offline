@@ -1,6 +1,7 @@
-package ooc.hw2;
+package ooc.hw2.game;
 
 import ooc.hw2.command.CommandFactory;
+import ooc.hw2.command.Parser;
 import ooc.hw2.map.Grid;
 import ooc.hw2.map.MapBuilder;
 

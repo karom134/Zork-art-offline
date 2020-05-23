@@ -1,5 +1,6 @@
-package ooc.hw2;
+package ooc.hw2.helper;
 
+import ooc.hw2.game.Game;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

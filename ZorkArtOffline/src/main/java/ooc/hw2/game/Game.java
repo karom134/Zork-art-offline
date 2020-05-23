@@ -1,4 +1,4 @@
-package ooc.hw2;
+package ooc.hw2.game;
 
 import ooc.hw2.command.*;
 import ooc.hw2.hostileunit.Enemy;

@@ -1,8 +1,12 @@
-package ooc.hw2;
+package ooc.hw2.helper;
 
-import ooc.hw2.helper.Pair;
+import ooc.hw2.game.Hero;
+import ooc.hw2.game.Game;
 import ooc.hw2.hostileunit.Monster;
+import ooc.hw2.item.HyperPotion;
+import ooc.hw2.item.MaxPotion;
 import ooc.hw2.item.Potion;
+import ooc.hw2.item.SuperPotion;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -44,9 +48,9 @@ public class JsonReader {
         JSONObject inventoryObject=(JSONObject) inventoryObj.get("inventory");
         Map<String, Pair> tmp=new HashMap<>();
         tmp.put("potion",new Pair(new Potion(),Math.toIntExact((Long) inventoryObject.get("potion"))));
-        tmp.put("Spotion",new Pair(new Potion(),Math.toIntExact((Long) inventoryObject.get("Spotion"))));
-        tmp.put("Hpotion",new Pair(new Potion(),Math.toIntExact((Long) inventoryObject.get("Hpotion"))));
-        tmp.put("Mpotion",new Pair(new Potion(),Math.toIntExact((Long) inventoryObject.get("Mpotion"))));
+        tmp.put("Spotion",new Pair(new SuperPotion(),Math.toIntExact((Long) inventoryObject.get("Spotion"))));
+        tmp.put("Hpotion",new Pair(new HyperPotion(),Math.toIntExact((Long) inventoryObject.get("Hpotion"))));
+        tmp.put("Mpotion",new Pair(new MaxPotion(),Math.toIntExact((Long) inventoryObject.get("Mpotion"))));
         Hero hero=new Hero(Math.toIntExact((Long) heroObject.get("level")),
                 Math.toIntExact((Long) heroObject.get("atk")),
                 Math.toIntExact((Long)heroObject.get("def")),

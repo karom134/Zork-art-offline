@@ -1,6 +1,6 @@
 package ooc.hw2.command;
 
-import ooc.hw2.Hero;
+import ooc.hw2.game.Hero;
 
 public class UpgradeCommand implements Command{
     private Hero hero;

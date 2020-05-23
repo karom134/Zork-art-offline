@@ -1,8 +1,5 @@
 package ooc.hw2.command;
 
-import ooc.hw2.Parser;
-import ooc.hw2.command.CommandFactory;
-
 public interface CommandProcessor {
     default void processCommand(Parser parser, CommandFactory commandFactory){
         String input = parser.getCommand();

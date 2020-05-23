@@ -1,8 +1,9 @@
-package ooc.hw2;
+package ooc.hw2.game;
 
 import ooc.hw2.command.AttackCommand;
 import ooc.hw2.command.CommandFactory;
 import ooc.hw2.command.CommandProcessor;
+import ooc.hw2.command.Parser;
 import ooc.hw2.hostileunit.Enemy;
 
 import java.util.HashSet;

@@ -1,7 +1,7 @@
 package ooc.hw2.command;
 
-import ooc.hw2.Game;
-import ooc.hw2.JsonWriter;
+import ooc.hw2.game.Game;
+import ooc.hw2.helper.JsonWriter;
 
 public class SaveCommand implements Command{
     private Game game;

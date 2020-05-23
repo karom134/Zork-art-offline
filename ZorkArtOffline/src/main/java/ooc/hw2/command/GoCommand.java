@@ -1,7 +1,6 @@
 package ooc.hw2.command;
 
-import ooc.hw2.Game;
-import ooc.hw2.Hero;
+import ooc.hw2.game.Hero;
 import ooc.hw2.map.Grid;
 
 public class GoCommand implements Command{
