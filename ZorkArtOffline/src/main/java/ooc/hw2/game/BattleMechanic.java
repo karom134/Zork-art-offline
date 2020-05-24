@@ -6,6 +6,7 @@ import ooc.hw2.command.CommandProcessor;
 import ooc.hw2.command.Parser;
 import ooc.hw2.hostileunit.Enemy;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,7 +41,7 @@ public class BattleMechanic implements CommandProcessor {
             hero.updateHpMp(-netDamage,0);
         }
     }
-    public void battle() {
+    public void battle() throws IOException {
         Boolean end = false;
         commandFactory.addCommand("attack", new AttackCommand(hero, monster, "Use this command to attack your enemy"));
         Set<String> set = new HashSet<>();

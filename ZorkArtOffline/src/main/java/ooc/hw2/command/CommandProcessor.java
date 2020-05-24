@@ -1,7 +1,9 @@
 package ooc.hw2.command;
 
+import java.io.IOException;
+
 public interface CommandProcessor {
-    default void processCommand(Parser parser, CommandFactory commandFactory){
+    default void processCommand(Parser parser, CommandFactory commandFactory) throws IOException {
         String input = parser.getCommand();
         String word1 = input.split("/")[0];
         String word2 = input.split("/")[1];

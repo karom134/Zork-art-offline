@@ -4,6 +4,8 @@ import ooc.hw2.game.BattleMechanic;
 import ooc.hw2.game.Hero;
 import ooc.hw2.hostileunit.Enemy;
 
+import java.io.IOException;
+
 public class BattleCommand implements Command{
     private Hero hero;
     private CommandFactory commandFactory;
@@ -19,7 +21,7 @@ public class BattleCommand implements Command{
     }
 
     @Override
-    public void execute(String word2) {
+    public void execute(String word2) throws IOException {
         if(hero.getLocation().getHostility()){
             System.out.println("You enter the battle with monster some command will be disable.");
             Enemy enemy=hero.getLocation().getEnemy();

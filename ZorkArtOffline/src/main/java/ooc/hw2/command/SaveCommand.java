@@ -16,8 +16,12 @@ public class SaveCommand implements Command{
 
     @Override
     public void execute(String word2) {
-        JsonWriter jsonWriter=new JsonWriter(game);
-        jsonWriter.writer(word2);
+        if(game.getMapExist()) {
+            JsonWriter jsonWriter = new JsonWriter(game);
+            jsonWriter.writer(word2);
+        } else{
+            System.out.println("can't use this command now");
+        }
 
     }
 }

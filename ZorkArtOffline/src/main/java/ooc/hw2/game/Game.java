@@ -3,6 +3,7 @@ package ooc.hw2.game;
 import ooc.hw2.command.*;
 import ooc.hw2.hostileunit.Enemy;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Game extends GameEditor implements CommandProcessor {
@@ -14,6 +15,9 @@ public class Game extends GameEditor implements CommandProcessor {
         parser=new Parser();
         this.defeatedBoss=new ArrayList<>();
         loaded=false;
+    }
+    public Boolean getLoaded(){
+        return this.loaded;
     }
     public void setLoaded(){
         loaded=true;
@@ -27,6 +31,7 @@ public class Game extends GameEditor implements CommandProcessor {
         commandFactory.addCommand("info",new InfoCommand(hero));
         commandFactory.addCommand("upgrade",new UpgradeCommand(hero));
         commandFactory.addCommand("go",new GoCommand(hero,map));
+        commandFactory.addCommand("autopilot",new AutopilotCommand(commandFactory));
     }
 
     public void afterBattleCalculation(){
@@ -77,13 +82,18 @@ public class Game extends GameEditor implements CommandProcessor {
         commandFactory.removeCommand("info");
         commandFactory.removeCommand("upgrade");
         commandFactory.removeCommand("go");
+        commandFactory.removeCommand("autopilot");
     }
     public void setHero(Hero hero){
         this.hero=hero;
     }
     public void play(){
         while(!(quit||gameClear)){
-            processCommand(parser,commandFactory);
+            try {
+                processCommand(parser,commandFactory);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             generateGamePlayCommand();
             if(mapExist&&!loaded) {
                 Integer spawn = mapBuilder.getSpawn();
@@ -91,9 +101,13 @@ public class Game extends GameEditor implements CommandProcessor {
                 mapBuilder.spawnMonster(20);
             }
             while(mapExist){
-                System.out.println(getMapBuilder().getMonsterLocation().toString());
+                //System.out.println(getMapBuilder().getMonsterLocation().toString());
                 printLocationDetail();
-                processCommand(parser,commandFactory);
+                try {
+                    processCommand(parser,commandFactory);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 afterBattleCalculation();
                 mapBuilder.moveMonster();
                 //System.out.println(mapBuilder.getMonsterLocation().toString());
