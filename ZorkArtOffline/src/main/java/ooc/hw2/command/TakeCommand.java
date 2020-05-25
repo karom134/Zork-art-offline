@@ -16,7 +16,7 @@ public class TakeCommand implements Command{
     @Override
     public void execute(String word2) {
         if(hero.getLocation().getItemExist()){
-            if(hero.getInventory().getItemCount()<=40){
+            if(hero.getInventory().getItemCount()<40){
             hero.getInventory().addItem(hero.getLocation().getItem());
             hero.getLocation().removeItem();
             }

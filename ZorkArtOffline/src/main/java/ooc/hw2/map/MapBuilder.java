@@ -61,6 +61,7 @@ public class MapBuilder extends MapAction {
                 }
             }
         }
+        reader.close();
     }
     public void constructFinalMap(String path){
         try {
@@ -107,10 +108,5 @@ public class MapBuilder extends MapAction {
             System.out.println(line);
         }
         System.out.println("@-Plain +-Tundra #-Forest %-Dessert *-Mountain");
-    }
-
-    public static void main(String[] args) {
-        MapBuilder map=new MapBuilder();
-        map.constructFinalMap("../ZorkArtOffline/src/main/resources/Sample");
     }
 }

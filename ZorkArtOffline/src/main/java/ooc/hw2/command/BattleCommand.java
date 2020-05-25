@@ -26,6 +26,7 @@ public class BattleCommand implements Command{
             System.out.println("You enter the battle with monster some command will be disable.");
             Enemy enemy=hero.getLocation().getEnemy();
             BattleMechanic battleMechanic=new BattleMechanic(hero,enemy,commandFactory);
+            commandFactory.addCommand("run", new RunCommand(battleMechanic));
             battleMechanic.battle();
         } else{
             System.out.println("There is no enemy in this room and you can't battle with yourself.");

@@ -15,11 +15,16 @@ public class BattleMechanic implements CommandProcessor {
     private Enemy monster;
     private CommandFactory commandFactory;
     private Parser parser;
+    private Boolean run=false;
     public BattleMechanic(Hero hero, Enemy monster, CommandFactory commandFactory){
         this.hero=hero;
         this.monster=monster;
         this.commandFactory=commandFactory;
         parser=new Parser();
+    }
+
+    public void setRun() {
+        this.run = true;
     }
 
     public Boolean isEnd(){
@@ -49,9 +54,14 @@ public class BattleMechanic implements CommandProcessor {
         set.add("info");
         set.add("drink");
         set.add("help");
+        set.add("run");
         commandFactory.setAvailableCommands(set);
         while (!end) {
             processCommand(parser,commandFactory);
+            if(run){
+                System.out.println("You run away from monster.");
+                break;
+            }
             if(monster.getHp()>0) {
                 retaliate();
             }
@@ -70,5 +80,6 @@ public class BattleMechanic implements CommandProcessor {
         }
         commandFactory.resetAvailableCommand();
         commandFactory.removeCommand("attack");
+        commandFactory.removeCommand("run");
     }
 }
