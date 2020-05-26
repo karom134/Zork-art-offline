@@ -103,7 +103,11 @@ public class MapBuilder extends MapAction {
         for(int i=0;i<size;i++){
             String line="";
             for(int j=0;j<size;j++){
-                line=line+ asciiMap.get(map[i][j].getTerrain())+" ";
+                if(monsterLocation.contains(size*i+j)){
+                    line=line+"x ";
+                }else{
+                    line=line+ asciiMap.get(map[i][j].getTerrain())+" ";
+                }
             }
             System.out.println(line);
         }

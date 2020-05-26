@@ -88,7 +88,7 @@ public class Game extends GameEditor implements CommandProcessor {
         this.hero=hero;
     }
     public void play(){
-        while(!(quit||gameClear)){
+        while(!quit){
             try {
                 processCommand(parser,commandFactory);
             } catch (IOException e) {
@@ -100,7 +100,7 @@ public class Game extends GameEditor implements CommandProcessor {
                 hero.setLocation(map[spawn / mapBuilder.getSize()][spawn % mapBuilder.getSize()]);
                 mapBuilder.spawnMonster(20);
             }
-            while(mapExist){
+            while(mapExist||gameClear){
                 //System.out.println(getMapBuilder().getMonsterLocation().toString());
                 printLocationDetail();
                 try {
