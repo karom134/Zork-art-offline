@@ -100,7 +100,7 @@ public class Game extends GameEditor implements CommandProcessor {
                 hero.setLocation(map[spawn / mapBuilder.getSize()][spawn % mapBuilder.getSize()]);
                 mapBuilder.spawnMonster(20);
             }
-            while(mapExist||gameClear){
+            while(mapExist && !gameClear){
                 //System.out.println(getMapBuilder().getMonsterLocation().toString());
                 printLocationDetail();
                 try {
