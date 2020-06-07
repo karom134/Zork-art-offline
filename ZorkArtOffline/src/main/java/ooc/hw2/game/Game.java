@@ -56,6 +56,10 @@ public class Game extends GameEditor implements CommandProcessor {
                 hero.getLocation().removeMonster();
             }
         }
+        if(hero.getHp()<=0){
+            System.out.println("You have been defeated");
+            mapExist=false;
+        }
     }
 
     public void printLocationDetail(){
@@ -112,10 +116,7 @@ public class Game extends GameEditor implements CommandProcessor {
                 mapBuilder.moveMonster();
                 //System.out.println(mapBuilder.getMonsterLocation().toString());
                 mapBuilder.spawnItem(1);
-                if(hero.getHp()<=0){
-                    System.out.println("You have been defeated");
-                    mapExist=false;
-                }
+
                 if(hero.getLocation().getTerrain().equals("Mountain")){
                     hero.updateHpMp(1,-2);
                 }
