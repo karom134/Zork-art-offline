@@ -22,6 +22,11 @@ public abstract class Enemy {
     public Integer getLifeCycle(){
         return this.lifeCycle;
     }
+
+    public void setHp(Integer hp) {
+        this.hp = hp;
+    }
+
     abstract public void updateMonster();
     public void piercing(Integer value){
        this.defence=Math.max(this.defence-value,0);

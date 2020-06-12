@@ -56,10 +56,12 @@ public class BattleMechanic implements CommandProcessor {
         set.add("help");
         set.add("run");
         commandFactory.setAvailableCommands(set);
+        Integer initialMonsterHp=monster.getHp();
         while (!end) {
             processCommand(parser,commandFactory);
             if(run){
                 System.out.println("You run away from monster.");
+                monster.setHp(initialMonsterHp);
                 break;
             }
             if(monster.getHp()>0) {
