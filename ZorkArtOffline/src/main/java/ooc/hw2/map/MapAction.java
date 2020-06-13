@@ -103,6 +103,13 @@ public abstract class MapAction {
             enemy.updateMonster();
         }
     }
+    public void upgradeAllBoss(){
+        for(int idx=0;idx<bossLocation.size();idx++){
+            Integer loc=monsterLocation.get(idx);
+            Enemy enemy=map[loc/size][loc%size].getEnemy();
+            enemy.updateMonster();
+        }
+    }
     public List<Integer> getMonsterLocation() {
         return monsterLocation;
     }
@@ -139,6 +146,10 @@ public abstract class MapAction {
             allMove.remove(Integer.valueOf(location-(this.size+1)));
         }
         return allMove;
+    }
+
+    public List<Integer> getBossLocation() {
+        return bossLocation;
     }
 
     public Integer getSpawn() {

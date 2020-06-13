@@ -18,7 +18,7 @@ jar {
     manifest {
         attributes(
                 'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
-                'Main-Class': 'ooc.hw2.Parser'
+                'Main-Class': 'ooc.hw2.Main'
         )
     }
     from {

@@ -74,6 +74,9 @@ public class JsonReader {
         JSONObject defeatedObj=(JSONObject) jsonArray.get(4);
         JSONObject defeatedObject=(JSONObject) defeatedObj.get("defeated");
         Set defeatedKeys = defeatedObject.keySet();
+        for(Object key:defeatedKeys){
+            game.getMapBuilder().upgradeAllBoss();
+        }
         if(!defeatedKeys.isEmpty()){
             defeatedKeys.forEach(key->{
                 game.getMap()[Integer.parseInt(key.toString())/game.getMapBuilder().getSize()][Integer.parseInt(key.toString())%game.getMapBuilder().getSize()]

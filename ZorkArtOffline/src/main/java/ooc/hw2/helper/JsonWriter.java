@@ -48,8 +48,9 @@ public class JsonWriter {
         monsterObject.put("monster",monsterDetail);
 
         JSONObject bossDefeated=new JSONObject();
-        for (Integer i:game.getDefeatedBoss()) {
-            bossDefeated.put(i,i);
+        for (Integer/*room*/ i:game.getDefeatedBoss()/*map*/) {
+            /*if.......*/
+            bossDefeated.put(i/*roomname*/,i/*item*/);
         }
         JSONObject defeatedObject=new JSONObject();
         defeatedObject.put("defeated",bossDefeated);
